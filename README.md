@@ -1,6 +1,6 @@
-# workflow
+# Pele Workflow
 
-Common information and workflow scripts for running jobs at HPC centers
+Common information and workflow scripts for running Pele jobs at HPC centers
 
 ## Editing and building the Sphinx docs
 
