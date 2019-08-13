@@ -29,7 +29,7 @@ class Job:
     def __init__(self,
                  name,
                  queue,
-                 cpu_type,
+                 mapping,
                  compiler,
                  executable,
                  input_file,
@@ -41,10 +41,12 @@ class Job:
                  walltime,
                  ranks_per_node,
                  cores_per_node,
+                 gpus_per_node,
                  hyperthreads,
                  knl_core_specialization,
                  cpu_bind,
                  total_ranks,
+                 total_gpus,
                  cores_per_rank,
                  hypercores_per_thread,
                  threads_per_rank,
@@ -54,7 +56,7 @@ class Job:
 
         self.name = name
         self.queue = queue
-        self.cpu_type = cpu_type
+        self.mapping = mapping
         self.compiler = compiler
         self.executable = executable
         self.input_file = input_file
@@ -66,10 +68,12 @@ class Job:
         self.walltime = walltime
         self.ranks_per_node = ranks_per_node
         self.cores_per_node = cores_per_node
+        self.gpus_per_node = gpus_per_node
         self.hyperthreads = hyperthreads
         self.knl_core_specialization = knl_core_specialization
         self.cpu_bind = cpu_bind
         self.total_ranks = total_ranks
+        self.total_gpus = total_gpus
         self.cores_per_rank = cores_per_rank
         self.hypercores_per_thread = hypercores_per_thread
         self.threads_per_rank = threads_per_rank
@@ -106,10 +110,12 @@ class JobSet:
 
 
 def find_machine_name():
-    if os.getenv('NREL_CLUSTER') == 'peregrine':
-        return 'peregrine'
+    if os.getenv('NREL_CLUSTER') == 'eagle':
+        return 'eagle'
     elif os.getenv('NERSC_HOST') == 'cori':
         return 'cori'
+    elif os.getenv('LMOD_SYSTEM_NAME') == 'summit':
+        return 'summit'
     else:
         print("Cannot determine host")
         exit(-1)
@@ -186,31 +192,38 @@ def write_job_script(machine, job, job_set):
     job.script = "#!/bin/bash -l\n\n"
     job.script += "# Notes: " + job_set.notes + "\n\n"
 
-    if machine == 'peregrine':
-        job.script += "#PBS -N " + job.name + "\n"
-        job.script += ("#PBS -l nodes=" + str(job.nodes)
-                       + ":ppn=" + str(job.cores_per_node)
-                       + ",walltime=" + str(job.walltime) + "\n")
-        job.script += "#PBS -A " + job_set.project_allocation + "\n"
-        job.script += "#PBS -q " + job.queue + "\n"
-        job.script += "#PBS -j oe\n"
-        job.script += "#PBS -W umask=002\n"
-        job.script += "#PBS -m " + job_set.mail_type + "\n"
-        job.script += "#PBS -M " + job_set.email + "\n"
-    elif machine == 'cori':
+    if machine == 'eagle':
         job.script += "#SBATCH -J " + job.name + "\n"
         job.script += "#SBATCH -o %x.o%j\n"
-        job.script += "#SBATCH -C " + job.cpu_type + "\n"
-        job.script += "#SBATCH -L SCRATCH\n"
         job.script += "#SBATCH -A " + job_set.project_allocation + "\n"
         job.script += "#SBATCH -t " + str(job.walltime) + "\n"
         job.script += "#SBATCH -q " + job.queue + "\n"
         job.script += "#SBATCH -N " + str(job.nodes) + "\n"
         job.script += "#SBATCH --mail-user=" + job_set.email + "\n"
         job.script += "#SBATCH --mail-type=" + job_set.mail_type + "\n"
+    elif machine == 'cori':
+        job.script += "#SBATCH -J " + job.name + "\n"
+        job.script += "#SBATCH -o %x.o%j\n"
+        job.script += "#SBATCH -A " + job_set.project_allocation + "\n"
+        job.script += "#SBATCH -t " + str(job.walltime) + "\n"
+        job.script += "#SBATCH -q " + job.queue + "\n"
+        job.script += "#SBATCH -N " + str(job.nodes) + "\n"
+        job.script += "#SBATCH --mail-user=" + job_set.email + "\n"
+        job.script += "#SBATCH --mail-type=" + job_set.mail_type + "\n"
+        job.script += "#SBATCH -C " + job.mapping + "\n"
+        job.script += "#SBATCH -L SCRATCH\n"
         if job.knl_core_specialization != '':
             job.script += ("#SBATCH -S "
                            + str(job.knl_core_specialization) + "\n")
+    elif machine == 'summit':
+        job.script += "#BSUB -J " + job.name + "\n"
+        job.script += "#BSUB -o " + job.name + ".o%J\n"
+        job.script += "#BSUB -P " + job_set.project_allocation + "\n"
+        job.script += "#BSUB -W " + str(job.walltime) + "\n"
+        job.script += "#BSUB -nnodes " + str(job.nodes) + "\n"
+        job.script += "#BSUB -alloc_flags \"smt1\"" + "\n"
+        if job.mapping == '7-ranks-per-gpu':
+            job.script += "#BSUB -alloc_flags \"gpumps\"" + "\n"
 
     job.script += r"""
 set -e
@@ -221,23 +234,37 @@ cmd() {
 }
 
 """
-    job.script += ("echo \"Running with " + str(job.ranks_per_node)
-                   + " ranks per node and " + str(job.threads_per_rank)
-                   + " threads per rank on " + str(job.nodes)
-                   + " nodes for a total of " + str(job.total_ranks)
-                   + " ranks and " + str(job.total_threads)
-                   + " threads...\"\n\n")
+    if job.mapping == 'skylake' or job.mapping == 'knl' or job.mapping == 'haswell' or job.mapping == '42-ranks-per-cpu':
+        job.script += ("echo \"Running with " + str(job.ranks_per_node)
+                       + " ranks per node and " + str(job.threads_per_rank)
+                       + " threads per rank on " + str(job.nodes)
+                       + " nodes for a total of " + str(job.total_ranks)
+                       + " ranks and " + str(job.total_threads)
+                       + " total threads...\"\n\n")
+    elif job.mapping == '1-rank-per-gpu' or job.mapping == '7-ranks-per-gpu':
+        job.script += ("echo \"Running with " + str(job.ranks_per_node)
+                       + " ranks per node and " + str(job.ranks_per_gpu)
+                       + " ranks per GPU on " + str(job.nodes)
+                       + " nodes for a total of " + str(job.total_ranks)
+                       + " ranks and " + str(job.total_gpus)
+                       + " total GPUs...\"\n\n")
 
-    if machine == 'peregrine':
+    if machine == 'eagle':
+        job.script += "MODULES=modules\n"
+        job.script += "COMPILER=gcc-7.4.0\n"
         job.script += "cmd \"module purge\"\n"
+        job.script += "cmd \"module unuse ${MODULEPATH}\"\n"
         job.script += (
-          "cmd \"module use /nopt/nrel/ecom/ecp/base/modules/gcc-6.2.0\"\n"
+          "cmd \"module use /nopt/nrel/ecom/hpacf/binaries/${MODULES}\"\n"
+          "cmd \"module use /nopt/nrel/ecom/hpacf/compilers/${MODULES}\"\n"
+          "cmd \"module use /nopt/nrel/ecom/hpacf/utilities/${MODULES}\"\n"
+          "cmd \"module use /nopt/nrel/ecom/hpacf/software/${MODULES}/${COMPILER}\"\n"
         )
-        job.script += "cmd \"module load gcc/6.2.0\"\n"
+        job.script += "cmd \"module load gcc\"\n"
         job.script += "cmd \"module load python\"\n"
 
         if job.compiler == 'gnu':
-            job.script += "cmd \"module load openmpi\"\n\n"
+            job.script += "cmd \"module load mpich\"\n\n"
             job.script += ("cmd \"export OMP_NUM_THREADS="
                            + str(job.threads_per_rank) + "\"\n\n")
             job.script += ("cmd \"" + job.pre_args
@@ -283,12 +310,12 @@ cmd() {
         job.script += "cmd \"export OMP_PLACES=threads\"\n"
         job.script += "cmd \"export OMP_PROC_BIND=spread\"\n"
 
-        if job.cpu_type == 'knl':
+        if job.mapping == 'knl':
             job.script += (
               "cmd \"module swap craype-haswell craype-mic-knl || true\"\n"
             )
 
-        if job.cpu_type == 'knl' and job.nodes > 156:
+        if job.mapping == 'knl' and job.nodes > 156:
             my_exe = "/tmp/pelec.ex"
             job.script += ("cmd \"sbcast -f -F2 -t 300 --compress=lz4 "
                            + str(job.executable) + " " + my_exe + "\"\n")
@@ -302,6 +329,39 @@ cmd() {
                        + my_exe + " "
                        + str(os.path.basename(job.input_file))
                        + " " + job.post_args + "\"\n")
+    elif machine == 'summit':
+        job.script += "cmd \"module unload xl\"\n"
+        job.script += "cmd \"module load cuda/10.1.168\"\n"
+        if job.compiler == 'pgi':
+            job.script += "cmd \"module load pgi/19.5\"\n"
+        elif job.compiler == 'gcc':
+            job.script += "cmd \"module load gcc\"\n"
+        job.script += ("cmd \"" + job.pre_args
+                       + "jsrun --nrs ")
+        if job.mapping == '1-rank-per-gpu':
+            job.script += (str(job.total_ranks)
+                           + " --tasks_per_rs " + str(1)
+                           + " --cpu_per_rs " + str(1)
+                           + " --gpu_per_rs " + str(1)
+                           + " --rs_per_host " + str(6))
+        if job.mapping == '7-ranks-per-gpu':
+            job.script += (str(job.total_ranks / job.ranks_per_gpu)
+                           + " --tasks_per_rs " + str(7)
+                           + " --cpu_per_rs " + str(7)
+                           + " --gpu_per_rs " + str(1)
+                           + " --rs_per_host " + str(6))
+        if job.mapping == '42-ranks-per-cpu':
+            job.script += (str(job.total_ranks)
+                           + " --tasks_per_rs " + str(1)
+                           + " --cpu_per_rs " + str(1)
+                           + " --rs_per_host " + str(42))
+
+        job.script += (" --latency_priority CPU-CPU "
+                        + "--launch_distribution packed "
+                        + "--bind packed:1 "
+                        + str(job.executable) + " "
+                        + str(os.path.basename(job.input_file)) + " "
+                        + job.post_args + "\"\n")
 
     # Write job script to file
     job.script_file = os.path.join(job.path, job.name + '.sh')
@@ -340,13 +400,15 @@ def submit_job_script(machine, job, job_set):
     # print("   Changing to directory " + job.path)
     os.chdir(job.path)
 
-    if machine == 'peregrine':
-        batch = 'qsub '
+    if machine == 'eagle':
+        batch = 'sbatch '
     elif machine == 'cori':
         batch = 'sbatch '
         # Use real test option for Slurm submission
         # if job_set.test_run == True:
         #     batch = batch + "--test-only "
+    elif machine == 'summit':
+        batch = 'bsub '
 
     print("   Submitting job...")
     command = batch + os.path.basename(job.script_file)
@@ -379,7 +441,7 @@ def print_job_info(job_number, job):
     print("   Executable: %s" % job.executable)
     print("   Input file: %s" % job.input_file)
     print("   Queue: %s" % job.queue)
-    print("   CPU type: %s" % job.cpu_type)
+    print("   Mapping: %s" % job.mapping)
     print("   Compiler: %s" % job.compiler)
     print("   Nodes: %s" % job.nodes)
     print("   Minutes: %s" % job.minutes)
@@ -411,36 +473,54 @@ def print_job_set_info(job_set):
 
 
 def calculate_job_parameters(machine, job):
-    if machine == 'peregrine':
-        job.walltime = job.minutes * 60
-        # Peregrine Haswell CPU logic
+    if machine == 'eagle':
+        job.walltime = job.minutes
+        # Eagle Skylake CPU logic
         job.ranks_per_node = 4
-        job.cores_per_node = 24
+        job.cores_per_node = 36
         job.hyperthreads = 2
-        if job.cpu_type != 'haswell':
-            print("Only use haswell cpu_type on Peregrine")
+        if job.mapping != 'skylake':
+            print("Only use skylake mapping on Eagle")
             exit(-1)
     elif machine == 'cori':
         job.walltime = job.minutes
         # Cori CPU logic
-        if job.cpu_type == 'knl':
+        if job.mapping == 'knl':
             job.ranks_per_node = 32
             job.cores_per_node = 64
             job.hyperthreads = 4
             job.knl_core_specialization = 4
-        elif job.cpu_type == 'haswell':
+        elif job.mapping == 'haswell':
             job.ranks_per_node = 8
             job.cores_per_node = 32
             job.hyperthreads = 2
         else:
-            print("The cpu_type is not recognized on Cori")
+            print("The mapping is not recognized on Cori")
 
         if job.ranks_per_node <= job.cores_per_node:
             job.cpu_bind = 'cores'
         else:
             job.cpu_bind = 'threads'
+    elif machine == 'summit':
+        job.walltime = job.minutes
+        # Power9 CPU logic
+        job.hyperthreads = 2
+        job.gpus_per_node = 6
+        if job.mapping == '1-rank-per-gpu':
+            job.ranks_per_node = 6
+            job.cores_per_node = 6
+            job.ranks_per_gpu = 1
+        elif job.mapping == '7-ranks-per-gpu':
+            job.ranks_per_node = 42
+            job.cores_per_node = 42
+            job.ranks_per_gpu = 7
+        elif job.mapping == '42-ranks-per-cpu':
+            job.ranks_per_node = 42
+            job.cores_per_node = 42
+            job.ranks_per_gpu = 0
 
     job.total_ranks = job.nodes * job.ranks_per_node
+    job.total_gpus = job.nodes * job.gpus_per_node
     job.cores_per_rank = (job.hyperthreads * job.cores_per_node
                           / job.ranks_per_node)
     # Don't use hyperthreading on haswell, but use two hyperthreads on KNL
@@ -460,7 +540,7 @@ def create_job(job_number, pele_job, pele_job_set):
     job = Job(
       pele_job_set['name'] + "-" + str(job_number),  # name
       pele_job['queue'],           # queue
-      pele_job['cpu_type'],        # cpu_type
+      pele_job['mapping'],         # mapping
       pele_job['compiler'],        # compiler
       pele_job['executable'],      # executable
       pele_job['input_file'],      # input file
@@ -472,10 +552,12 @@ def create_job(job_number, pele_job, pele_job_set):
       0,   # walltime
       0,   # ranks_per_node
       0,   # cores_per_node
+      0,   # gpus_per_node
       0,   # hyperthreads
       "",  # knl_core_specialization
       "",  # cpu_bind
       0,   # total_ranks
+      0,   # total_gpus
       0,   # cores_per_rank
       0,   # hypercores_per_thread
       0,   # threads_per_rank
@@ -504,13 +586,13 @@ def create_job(job_number, pele_job, pele_job_set):
 
 def create_job_set(pele_job_set, job_set_path):
     job_set = JobSet(
-      pele_job_set['name'],       # name
-      False,                      # test_run
-      pele_job_set['email'],      # email
-      pele_job_set['mail_type'],  # mail_type
-      pele_job_set['project_allocation'],  # project_allocation
-      pele_job_set['notes'],      # notes
-      job_set_path                # path
+      pele_job_set['name'],               # name
+      False,                              # test_run
+      pele_job_set['email'],              # email
+      pele_job_set['mail_type'],          # mail_type
+      pele_job_set['project_allocation'], # project_allocation
+      pele_job_set['notes'],              # notes
+      job_set_path                        # path
     )
 
     return job_set
@@ -525,7 +607,7 @@ def create_job_set(pele_job_set, job_set_path):
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Job Scholar: Job submission backed by best practices.'
+        description='Job Scholar: Job submission powered by best practices.'
     )
     parser.add_argument('--test', dest='test_run', action='store_true',
                         help='perform a test job submission')
