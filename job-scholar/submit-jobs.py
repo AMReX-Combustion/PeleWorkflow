@@ -349,27 +349,30 @@ cmd() {
                            + " --tasks_per_rs " + str(1)
                            + " --cpu_per_rs " + str(1)
                            + " --gpu_per_rs " + str(1)
-                           + " --rs_per_host " + str(6))
+                           + " --rs_per_host " + str(6)
+                           + " --bind packed:1")
         if job.mapping == '7-ranks-per-gpu':
             job.script += (str(job.total_ranks / job.ranks_per_gpu)
                            + " --tasks_per_rs " + str(7)
                            + " --cpu_per_rs " + str(7)
                            + " --gpu_per_rs " + str(1)
-                           + " --rs_per_host " + str(6))
+                           + " --rs_per_host " + str(6)
+                           + " --bind packed:1")
         if job.mapping == '42-ranks-per-cpu':
             job.script += (str(job.total_ranks)
                            + " --tasks_per_rs " + str(1)
                            + " --cpu_per_rs " + str(1)
-                           + " --rs_per_host " + str(42))
+                           + " --rs_per_host " + str(42)
+                           + " --bind packed:1")
         if job.mapping == '14-ranks-per-cpu':
             job.script += (str(job.total_ranks)
                            + " --tasks_per_rs " + str(1)
                            + " --cpu_per_rs " + str(3)
-                           + " --rs_per_host " + str(14))
+                           + " --rs_per_host " + str(14)
+                           + " --bind rs")
 
         job.script += (" --latency_priority CPU-CPU"
                         + " --launch_distribution packed"
-                        + " --bind packed:1 "
                         + str(job.executable) + " "
                         + str(os.path.basename(job.input_file)) + " "
                         + job.post_args + "\"\n")
