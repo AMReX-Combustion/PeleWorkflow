@@ -4,7 +4,8 @@ A helpful job submission framework for running PeleC at supercomputing centers u
 
 List of supported machines:
 
-1. Peregrine at NREL
+1. Eagle at NREL
 2. Cori at NERSC
+2. Summit at ORNL
 
 Written and maintained by Jon Rood ([@jrood-nrel](https://github.com/jrood-nrel)).

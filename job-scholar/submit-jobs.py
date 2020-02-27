@@ -197,7 +197,7 @@ def write_job_script(machine, job, job_set):
         job.script += "#SBATCH -o %x.o%j\n"
         job.script += "#SBATCH -A " + job_set.project_allocation + "\n"
         job.script += "#SBATCH -t " + str(job.walltime) + "\n"
-        job.script += "#SBATCH -q " + job.queue + "\n"
+        job.script += "#SBATCH -p " + job.queue + "\n"
         job.script += "#SBATCH -N " + str(job.nodes) + "\n"
         job.script += "#SBATCH --mail-user=" + job_set.email + "\n"
         job.script += "#SBATCH --mail-type=" + job_set.mail_type + "\n"
@@ -281,9 +281,9 @@ cmd() {
         elif job.compiler == 'intel':
             job.script += "cmd \"module load intel-parallel-studio\"\n\n"
             job.script += "MY_TMP_DIR=/scratch/${USER}/.tmp\n"
-            job.script += "NODE_LIST=${MY_TMP_DIR}/node_list.${PBS_JOBID}\n"
+            job.script += "NODE_LIST=${MY_TMP_DIR}/node_list.${SLURM_JOB_ID}\n"
             job.script += "cmd \"mkdir -p ${MY_TMP_DIR}\"\n"
-            job.script += "cmd \"cat ${PBS_NODEFILE} > ${NODE_LIST}\"\n"
+            job.script += "cmd \"scontrol show hostname > ${NODE_LIST}\"\n"
             job.script += "#cmd \"export I_MPI_DEBUG=5\"\n"
             job.script += "cmd \"export I_MPI_FABRIC_LIST=ofa,dapl\"\n"
             job.script += "cmd \"export I_MPI_FABRICS=shm:ofa\"\n"
@@ -417,9 +417,9 @@ def submit_job_script(machine, job, job_set):
             output = subprocess.check_output(
                 command, stderr=subprocess.STDOUT, shell=True
             )
-            print("   " + batch + "output: " + output)
+            print("   ".encode('ascii') + batch.encode('ascii') + "output: ".encode('ascii') + output)
         except subprocess.CalledProcessError as err:
-            print("   " + batch + "error: " + output)
+            print("   ".encode('ascii') + batch.encode('ascii') + "error: ".encode('ascii') + output)
             print(err.output)
     else:
         print("   TEST RUN. Real run would use the command:")
@@ -476,7 +476,7 @@ def calculate_job_parameters(machine, job):
     if machine == 'eagle':
         job.walltime = job.minutes
         # Eagle Skylake CPU logic
-        job.ranks_per_node = 4
+        job.ranks_per_node = 18
         job.cores_per_node = 36
         job.hyperthreads = 2
         if job.mapping != 'skylake':
@@ -519,14 +519,14 @@ def calculate_job_parameters(machine, job):
             job.cores_per_node = 42
             job.ranks_per_gpu = 0
 
-    job.total_ranks = job.nodes * job.ranks_per_node
-    job.total_gpus = job.nodes * job.gpus_per_node
-    job.cores_per_rank = (job.hyperthreads * job.cores_per_node
+    job.total_ranks = int(job.nodes * job.ranks_per_node)
+    job.total_gpus = int(job.nodes * job.gpus_per_node)
+    job.cores_per_rank = int(job.hyperthreads * job.cores_per_node
                           / job.ranks_per_node)
     # Don't use hyperthreading on haswell, but use two hyperthreads on KNL
     job.hypercores_per_thread = 2
-    job.threads_per_rank = job.cores_per_rank / job.hypercores_per_thread
-    job.total_threads = job.threads_per_rank * job.total_ranks
+    job.threads_per_rank = int(job.cores_per_rank / job.hypercores_per_thread)
+    job.total_threads = int(job.threads_per_rank * job.total_ranks)
 
 
 # ========================================================================
