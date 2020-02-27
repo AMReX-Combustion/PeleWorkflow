@@ -372,7 +372,7 @@ cmd() {
                            + " --bind rs")
 
         job.script += (" --latency_priority CPU-CPU"
-                        + " --launch_distribution packed"
+                        + " --launch_distribution packed "
                         + str(job.executable) + " "
                         + str(os.path.basename(job.input_file)) + " "
                         + job.post_args + "\"\n")
