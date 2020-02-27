@@ -221,9 +221,13 @@ def write_job_script(machine, job, job_set):
         job.script += "#BSUB -P " + job_set.project_allocation + "\n"
         job.script += "#BSUB -W " + str(job.walltime) + "\n"
         job.script += "#BSUB -nnodes " + str(job.nodes) + "\n"
-        job.script += "#BSUB -alloc_flags \"smt1\"" + "\n"
         if job.mapping == '7-ranks-per-gpu':
+            job.script += "#BSUB -alloc_flags \"smt1\"" + "\n"
             job.script += "#BSUB -alloc_flags \"gpumps\"" + "\n"
+        if job.mapping == '14-ranks-per-cpu':
+            job.script += "#BSUB -alloc_flags \"smt2\"" + "\n"
+        if job.mapping == '42-ranks-per-cpu' or job.mapping == '1-rank-per-gpu':
+            job.script += "#BSUB -alloc_flags \"smt1\"" + "\n"
 
     job.script += r"""
 set -e
@@ -234,7 +238,7 @@ cmd() {
 }
 
 """
-    if job.mapping == 'skylake' or job.mapping == 'knl' or job.mapping == 'haswell' or job.mapping == '42-ranks-per-cpu':
+    if job.mapping == 'skylake' or job.mapping == 'knl' or job.mapping == 'haswell' or job.mapping == '42-ranks-per-cpu' or job.mapping == '14-ranks-per-cpu':
         job.script += ("echo \"Running with " + str(job.ranks_per_node)
                        + " ranks per node and " + str(job.threads_per_rank)
                        + " threads per rank on " + str(job.nodes)
@@ -336,6 +340,8 @@ cmd() {
             job.script += "cmd \"module load pgi/19.5\"\n"
         elif job.compiler == 'gcc':
             job.script += "cmd \"module load gcc\"\n"
+        if job.mapping == '14-ranks-per-cpu':
+            job.script += "cmd \"export OMP_NUM_THREADS=6\"\n"
         job.script += ("cmd \"" + job.pre_args
                        + "jsrun --nrs ")
         if job.mapping == '1-rank-per-gpu':
@@ -355,10 +361,15 @@ cmd() {
                            + " --tasks_per_rs " + str(1)
                            + " --cpu_per_rs " + str(1)
                            + " --rs_per_host " + str(42))
+        if job.mapping == '14-ranks-per-cpu':
+            job.script += (str(job.total_ranks)
+                           + " --tasks_per_rs " + str(1)
+                           + " --cpu_per_rs " + str(3)
+                           + " --rs_per_host " + str(14))
 
-        job.script += (" --latency_priority CPU-CPU "
-                        + "--launch_distribution packed "
-                        + "--bind packed:1 "
+        job.script += (" --latency_priority CPU-CPU"
+                        + " --launch_distribution packed"
+                        + " --bind packed:1 "
                         + str(job.executable) + " "
                         + str(os.path.basename(job.input_file)) + " "
                         + job.post_args + "\"\n")
@@ -504,7 +515,7 @@ def calculate_job_parameters(machine, job):
     elif machine == 'summit':
         job.walltime = job.minutes
         # Power9 CPU logic
-        job.hyperthreads = 2
+        job.hyperthreads = 4
         job.gpus_per_node = 6
         if job.mapping == '1-rank-per-gpu':
             job.ranks_per_node = 6
@@ -518,13 +529,19 @@ def calculate_job_parameters(machine, job):
             job.ranks_per_node = 42
             job.cores_per_node = 42
             job.ranks_per_gpu = 0
+        elif job.mapping == '14-ranks-per-cpu':
+            job.ranks_per_node = 14
+            job.cores_per_node = 42
+            job.ranks_per_gpu = 0
 
     job.total_ranks = int(job.nodes * job.ranks_per_node)
     job.total_gpus = int(job.nodes * job.gpus_per_node)
     job.cores_per_rank = int(job.hyperthreads * job.cores_per_node
                           / job.ranks_per_node)
-    # Don't use hyperthreading on haswell, but use two hyperthreads on KNL
-    job.hypercores_per_thread = 2
+    if job.mapping == '42-ranks-per-cpu' or  job.mapping == '7-ranks-per-gpu':
+        job.hypercores_per_thread = 4
+    else:
+        job.hypercores_per_thread = 2
     job.threads_per_rank = int(job.cores_per_rank / job.hypercores_per_thread)
     job.total_threads = int(job.threads_per_rank * job.total_ranks)
 

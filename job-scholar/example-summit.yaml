@@ -1,11 +1,59 @@
+variables:
+  input_file: &input_file '/gpfs/alpine/scratch/jrood/cmb138/job-scholar2/files/inputs-3d'
+  pmf_file: &pmf_file '/gpfs/alpine/scratch/jrood/cmb138/job-scholar2/files/PMF_CH4_1bar_300K_DRM_MixAvg.dat'
+  probin_file: &probin_file '/gpfs/alpine/scratch/jrood/cmb138/job-scholar2/files/probin-regt'
+  peleg_cpu: &peleg_cpu '/gpfs/alpine/scratch/jrood/cmb138/job-scholar2/exes/peleg.gnu.mpi.pmf.drm19.ex'
+  peleg_omp_cpu: &peleg_omp_cpu '/gpfs/alpine/scratch/jrood/cmb138/job-scholar2/exes/peleg.gnu.mpi.omp.pmf.drm19.ex'
+  peleg_gpu: &peleg_gpu '/gpfs/alpine/scratch/jrood/cmb138/job-scholar2/exes/peleg.gnu.mpi.cuda.pmf.drm19.ex'
+  pelec_cpu: &pelec_cpu '/gpfs/alpine/scratch/jrood/cmb138/job-scholar2/exes/pelec.gnu.mpi.pmf.drm19.ex'
+  pelec_omp_cpu: &pelec_omp_cpu '/gpfs/alpine/scratch/jrood/cmb138/job-scholar2/exes/pelec.gnu.mpi.omp.pmf.drm19.ex'
+  my_post_args: &my_post_args 'amr.n_cell=384 384 384 geometry.prob_lo=-6.0 -6.0 -6.0 geometry.prob_hi=6.0 6.0 6.0 amr.max_level=2 max_step=5 amr.plot_files_output=0 amr.checkpoint_files_output=0'
+
 pele_job_set:
-  name: example-pele-weak-scaling
-  email: whoever@somewhere.com
-  mail_type: NONE # Slurm: NONE, BEGIN, END, FAIL, REQUEUE, ALL -- Torque/Moab: n, p, a, b, e, f
+  name: summit-strong-scaling
+  email: jon.rood@nrel.gov
+  mail_type: NONE
   project_allocation: CMB138
-  notes: Example PeleC Summit weak scaling study
+  notes: PeleC/G Summit strong scaling study for CPU and CUDA PLM 384^3 with 2 levels of AMR
   pele_job_list:
-    - {executable: /autofs/nccs-svm1_home1/jrood/combustion/PeleC/Exec/RegTests/PMF/PeleC3d.gnu.TPROF.MPI.CUDA.ex, input_file: /autofs/nccs-svm1_home1/jrood/combustion/PeleC/Exec/RegTests/PMF/inputs-3d-regt, files_to_copy: [/autofs/nccs-svm1_home1/jrood/combustion/PeleC/Exec/RegTests/PMF/probin-regt, /autofs/nccs-svm1_home1/jrood/combustion/PeleC/Exec/RegTests/PMF/LiDryer_H2_p1_phi0_4000tu0300.dat], queue: regular, mapping: 1-rank-per-gpu, compiler: gcc, minutes: 30, nodes: 1, pre_args:, post_args: amr.n_cell=160 160 160 geometry.prob_lo=-0.625 -0.625 -0.625 geometry.prob_hi=2.5 2.5 2.5 amr.max_level=0 max_step=5 amr.plot_files_output=0 amr.checkpoint_files_output=0}
-    - {executable: /autofs/nccs-svm1_home1/jrood/combustion/PeleC/Exec/RegTests/PMF/PeleC3d.gnu.TPROF.MPI.CUDA.ex, input_file: /autofs/nccs-svm1_home1/jrood/combustion/PeleC/Exec/RegTests/PMF/inputs-3d-regt, files_to_copy: [/autofs/nccs-svm1_home1/jrood/combustion/PeleC/Exec/RegTests/PMF/probin-regt, /autofs/nccs-svm1_home1/jrood/combustion/PeleC/Exec/RegTests/PMF/LiDryer_H2_p1_phi0_4000tu0300.dat], queue: regular, mapping: 1-rank-per-gpu, compiler: gcc, minutes: 30, nodes: 1, pre_args:, post_args: amr.n_cell=256 256 256 geometry.prob_lo=-1.0 -1.0 -1.0 geometry.prob_hi=4.0 4.0 4.0 amr.max_level=0 max_step=5 amr.plot_files_output=0 amr.checkpoint_files_output=0}
-    - {executable: /autofs/nccs-svm1_home1/jrood/combustion/PeleC/Exec/RegTests/PMF/PeleC3d.gnu.TPROF.MPI.CUDA.ex, input_file: /autofs/nccs-svm1_home1/jrood/combustion/PeleC/Exec/RegTests/PMF/inputs-3d-regt, files_to_copy: [/autofs/nccs-svm1_home1/jrood/combustion/PeleC/Exec/RegTests/PMF/probin-regt, /autofs/nccs-svm1_home1/jrood/combustion/PeleC/Exec/RegTests/PMF/LiDryer_H2_p1_phi0_4000tu0300.dat], queue: regular, mapping: 1-rank-per-gpu, compiler: gcc, minutes: 30, nodes: 1, pre_args:, post_args: amr.n_cell=512 512 512 geometry.prob_lo=-2.0 -2.0 -2.0 geometry.prob_hi=8.0 8.0 8.0 amr.max_level=0 max_step=5 amr.plot_files_output=0 amr.checkpoint_files_output=0}
-    - {executable: /autofs/nccs-svm1_home1/jrood/combustion/PeleC/Exec/RegTests/PMF/PeleC3d.gnu.TPROF.MPI.CUDA.ex, input_file: /autofs/nccs-svm1_home1/jrood/combustion/PeleC/Exec/RegTests/PMF/inputs-3d-regt, files_to_copy: [/autofs/nccs-svm1_home1/jrood/combustion/PeleC/Exec/RegTests/PMF/probin-regt, /autofs/nccs-svm1_home1/jrood/combustion/PeleC/Exec/RegTests/PMF/LiDryer_H2_p1_phi0_4000tu0300.dat], queue: regular, mapping: 1-rank-per-gpu, compiler: gcc, minutes: 30, nodes: 1, pre_args:, post_args: amr.n_cell=1024 1024 1024 geometry.prob_lo=-4.0 -4.0 -4.0 geometry.prob_hi=16.0 16.0 16.0 amr.max_level=0 max_step=5 amr.plot_files_output=0 amr.checkpoint_files_output=0}
+    #PeleC CPU
+    #- {executable: *pelec_cpu, input_file: *input_file, files_to_copy: [*pmf_file, *probin_file], queue: regular, mapping: 42-ranks-per-cpu, compiler: gcc, minutes: 120, nodes: 32, pre_args:, post_args: *my_post_args}
+    #- {executable: *pelec_cpu, input_file: *input_file, files_to_copy: [*pmf_file, *probin_file], queue: regular, mapping: 42-ranks-per-cpu, compiler: gcc, minutes: 360, nodes: 64, pre_args:, post_args: *my_post_args}
+    #- {executable: *pelec_cpu, input_file: *input_file, files_to_copy: [*pmf_file, *probin_file], queue: regular, mapping: 42-ranks-per-cpu, compiler: gcc, minutes: 360, nodes: 128, pre_args:, post_args: *my_post_args}
+    #- {executable: *pelec_cpu, input_file: *input_file, files_to_copy: [*pmf_file, *probin_file], queue: regular, mapping: 42-ranks-per-cpu, compiler: gcc, minutes: 360, nodes: 256, pre_args:, post_args: *my_post_args}
+    #- {executable: *pelec_cpu, input_file: *input_file, files_to_copy: [*pmf_file, *probin_file], queue: regular, mapping: 42-ranks-per-cpu, compiler: gcc, minutes: 120, nodes: 512, pre_args:, post_args: *my_post_args}
+    #- {executable: *pelec_cpu, input_file: *input_file, files_to_copy: [*pmf_file, *probin_file], queue: regular, mapping: 42-ranks-per-cpu, compiler: gcc, minutes: 90, nodes: 1024, pre_args:, post_args: *my_post_args}
+    #- {executable: *pelec_cpu, input_file: *input_file, files_to_copy: [*pmf_file, *probin_file], queue: regular, mapping: 42-ranks-per-cpu, compiler: gcc, minutes: 30, nodes: 2048, pre_args:, post_args: *my_post_args}
+    #PeleC OMP CPU
+    - {executable: *pelec_omp_cpu, input_file: *input_file, files_to_copy: [*pmf_file, *probin_file], queue: regular, mapping: 14-ranks-per-cpu, compiler: gcc, minutes: 120, nodes: 32, pre_args:, post_args: *my_post_args}
+    - {executable: *pelec_omp_cpu, input_file: *input_file, files_to_copy: [*pmf_file, *probin_file], queue: regular, mapping: 14-ranks-per-cpu, compiler: gcc, minutes: 360, nodes: 64, pre_args:, post_args: *my_post_args}
+    - {executable: *pelec_omp_cpu, input_file: *input_file, files_to_copy: [*pmf_file, *probin_file], queue: regular, mapping: 14-ranks-per-cpu, compiler: gcc, minutes: 360, nodes: 128, pre_args:, post_args: *my_post_args}
+    - {executable: *pelec_omp_cpu, input_file: *input_file, files_to_copy: [*pmf_file, *probin_file], queue: regular, mapping: 14-ranks-per-cpu, compiler: gcc, minutes: 360, nodes: 256, pre_args:, post_args: *my_post_args}
+    - {executable: *pelec_omp_cpu, input_file: *input_file, files_to_copy: [*pmf_file, *probin_file], queue: regular, mapping: 14-ranks-per-cpu, compiler: gcc, minutes: 120, nodes: 512, pre_args:, post_args: *my_post_args}
+    - {executable: *pelec_omp_cpu, input_file: *input_file, files_to_copy: [*pmf_file, *probin_file], queue: regular, mapping: 14-ranks-per-cpu, compiler: gcc, minutes: 90, nodes: 1024, pre_args:, post_args: *my_post_args}
+    - {executable: *pelec_omp_cpu, input_file: *input_file, files_to_copy: [*pmf_file, *probin_file], queue: regular, mapping: 14-ranks-per-cpu, compiler: gcc, minutes: 30, nodes: 2048, pre_args:, post_args: *my_post_args}
+    #PeleG CPU
+    #- {executable: *peleg_cpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 42-ranks-per-cpu, compiler: gcc, minutes: 120, nodes: 32, pre_args:, post_args: *my_post_args}
+    #- {executable: *peleg_cpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 42-ranks-per-cpu, compiler: gcc, minutes: 360, nodes: 64, pre_args:, post_args: *my_post_args}
+    #- {executable: *peleg_cpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 42-ranks-per-cpu, compiler: gcc, minutes: 240, nodes: 128, pre_args:, post_args: *my_post_args}
+    #- {executable: *peleg_cpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 42-ranks-per-cpu, compiler: gcc, minutes: 240, nodes: 256, pre_args:, post_args: *my_post_args}
+    #- {executable: *peleg_cpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 42-ranks-per-cpu, compiler: gcc, minutes: 120, nodes: 512, pre_args:, post_args: *my_post_args}
+    #- {executable: *peleg_cpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 42-ranks-per-cpu, compiler: gcc, minutes: 90, nodes: 1024, pre_args:, post_args: *my_post_args}
+    #- {executable: *peleg_cpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 42-ranks-per-cpu, compiler: gcc, minutes: 30, nodes: 2048, pre_args:, post_args: *my_post_args}
+    #PeleG OMP CPU
+    - {executable: *peleg_omp_cpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 14-ranks-per-cpu, compiler: gcc, minutes: 120, nodes: 32, pre_args:, post_args: *my_post_args}
+    - {executable: *peleg_omp_cpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 14-ranks-per-cpu, compiler: gcc, minutes: 360, nodes: 64, pre_args:, post_args: *my_post_args}
+    - {executable: *peleg_omp_cpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 14-ranks-per-cpu, compiler: gcc, minutes: 240, nodes: 128, pre_args:, post_args: *my_post_args}
+    - {executable: *peleg_omp_cpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 14-ranks-per-cpu, compiler: gcc, minutes: 240, nodes: 256, pre_args:, post_args: *my_post_args}
+    - {executable: *peleg_omp_cpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 14-ranks-per-cpu, compiler: gcc, minutes: 120, nodes: 512, pre_args:, post_args: *my_post_args}
+    - {executable: *peleg_omp_cpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 14-ranks-per-cpu, compiler: gcc, minutes: 90, nodes: 1024, pre_args:, post_args: *my_post_args}
+    - {executable: *peleg_omp_cpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 14-ranks-per-cpu, compiler: gcc, minutes: 30, nodes: 2048, pre_args:, post_args: *my_post_args}
+    #PeleG GPU
+    - {executable: *peleg_gpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 1-rank-per-gpu, compiler: gcc, minutes: 120, nodes: 32, pre_args:, post_args: *my_post_args}
+    - {executable: *peleg_gpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 1-rank-per-gpu, compiler: gcc, minutes: 90, nodes: 64, pre_args:, post_args: *my_post_args}
+    - {executable: *peleg_gpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 1-rank-per-gpu, compiler: gcc, minutes: 60, nodes: 128, pre_args:, post_args: *my_post_args}
+    - {executable: *peleg_gpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 1-rank-per-gpu, compiler: gcc, minutes: 60, nodes: 256, pre_args:, post_args: *my_post_args}
+    - {executable: *peleg_gpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 1-rank-per-gpu, compiler: gcc, minutes: 30, nodes: 512, pre_args:, post_args: *my_post_args}
+    - {executable: *peleg_gpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 1-rank-per-gpu, compiler: gcc, minutes: 30, nodes: 1024, pre_args:, post_args: *my_post_args}
+    - {executable: *peleg_gpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 1-rank-per-gpu, compiler: gcc, minutes: 30, nodes: 2048, pre_args:, post_args: *my_post_args}
+    - {executable: *peleg_gpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: 1-rank-per-gpu, compiler: gcc, minutes: 30, nodes: 4096, pre_args:, post_args: *my_post_args}
