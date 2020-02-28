@@ -289,9 +289,9 @@ cmd() {
             job.script += "cmd \"mkdir -p ${MY_TMP_DIR}\"\n"
             job.script += "cmd \"scontrol show hostname > ${NODE_LIST}\"\n"
             job.script += "#cmd \"export I_MPI_DEBUG=5\"\n"
-            job.script += "cmd \"export I_MPI_FABRIC_LIST=ofa,dapl\"\n"
-            job.script += "cmd \"export I_MPI_FABRICS=shm:ofa\"\n"
-            job.script += "cmd \"export I_MPI_FALLBACK=0\"\n"
+            job.script += "#cmd \"export I_MPI_FABRIC_LIST=ofa,dapl\"\n"
+            job.script += "#cmd \"export I_MPI_FABRICS=shm:ofa\"\n"
+            job.script += "#cmd \"export I_MPI_FALLBACK=0\"\n"
             job.script += "cmd \"export I_MPI_PIN=1\"\n"
             job.script += "cmd \"export I_MPI_PIN_DOMAIN=omp\"\n"
             job.script += (
