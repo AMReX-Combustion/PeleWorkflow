@@ -7,6 +7,12 @@
 
 ## [job-scholar](../job-scholar) submission scripts
 
-- [Strong scaling script for NREL Eagle](strong-scaling-eagle.yaml) (Figure 9, 10 in paper)
-- [Strong scaling script for ORNL Summit](strong-scaling-summit.yaml) (Figure 9, 10, and 11 in paper)
-- [Weak scaling script for ORNL Summit](weak-scaling-summit.yaml) (Figure 12 in paper)
+- [Submission script](submit-jobs.py)
+- [Strong scaling configuration for NREL Eagle](strong-scaling-eagle.yaml) (Figure 9, 10 in paper)
+- [Strong scaling configuration for ORNL Summit](strong-scaling-summit.yaml) (Figure 9, 10, and 11 in paper)
+- [Weak scaling configuration for ORNL Summit](weak-scaling-summit.yaml) (Figure 12 in paper)
+
+## Case specific files
+
+- [Input file for PMF case](inputs_ex) and [initial flow condition setup](PMF_CH4_1bar_300K_DRM_MixAvg.dat)
+- [Input file for piston bowl case](inputs_ex_pb)
