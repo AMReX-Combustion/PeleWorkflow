@@ -1,0 +1,17 @@
+variables:
+  input_file: &input_file '/home/jrood/combustion/PeleWorkflow/job-scholar/files/inputs-3d'
+  pmf_file: &pmf_file '/home/jrood/combustion/PeleWorkflow/job-scholar/files/PMF_CH4_1bar_300K_DRM_MixAvg.dat'
+  probin_file: &probin_file '/home/jrood/combustion/PeleWorkflow/job-scholar/files/probin-regt'
+  peleg_cpu: &peleg_cpu '/home/jrood/combustion/PeleWorkflow/job-scholar/exes/peleg.intel.mpi.pmf.drm19.ex'
+  pelec_cpu: &pelec_cpu '/home/jrood/combustion/PeleWorkflow/job-scholar/exes/pelec.intel.mpi.pmf.drm19.ex'
+  my_post_args: &my_post_args 'amr.n_cell=384 384 384 geometry.prob_lo=-6.0 -6.0 -6.0 geometry.prob_hi=6.0 6.0 6.0 amr.max_level=2 max_step=5 amr.plot_files_output=1 amr.checkpoint_files_output=0'
+
+pele_job_set:
+  name: eagle-strong-scaling
+  email: jon.rood@nrel.gov
+  mail_type: NONE
+  project_allocation: exact
+  notes: PeleC/G Eagle strong scaling study for CPU 384^3 with 2 levels of AMR
+  pele_job_list:
+    - {executable: *pelec_cpu, input_file: *input_file, files_to_copy: [*pmf_file, *probin_file], queue: regular, mapping: skylake, compiler: intel, minutes: 120, nodes: 32, pre_args:, post_args: *my_post_args}
+    - {executable: *peleg_cpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: skylake, compiler: intel, minutes: 120, nodes: 32, pre_args:, post_args: *my_post_args}
