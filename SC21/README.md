@@ -7,7 +7,7 @@ Using [the SC Tech Program Author Kit](https://github.com/SC-Tech-Program/Author
 - [NREL Eagle compute node description](eagle-system.txt)
 - [ORNL Summit compute node description](summit-system.txt)
 
-## [job-scholar](../job-scholar) submission scripts
+## Submission configurations for [job-scholar](../job-scholar)
 
 - [Submission script](submit-jobs.py)
 - [Strong scaling configuration for NREL Eagle](strong-scaling-eagle.yaml) (Figure 9, 10 in paper)
