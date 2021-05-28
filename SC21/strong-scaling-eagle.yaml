@@ -1,9 +1,9 @@
 variables:
-  input_file: &input_file '/home/jrood/combustion/PeleWorkflow/job-scholar/files/inputs-3d'
-  pmf_file: &pmf_file '/home/jrood/combustion/PeleWorkflow/job-scholar/files/PMF_CH4_1bar_300K_DRM_MixAvg.dat'
-  probin_file: &probin_file '/home/jrood/combustion/PeleWorkflow/job-scholar/files/probin-regt'
-  peleg_cpu: &peleg_cpu '/home/jrood/combustion/PeleWorkflow/job-scholar/exes/peleg.intel.mpi.pmf.drm19.ex'
-  pelec_cpu: &pelec_cpu '/home/jrood/combustion/PeleWorkflow/job-scholar/exes/pelec.intel.mpi.pmf.drm19.ex'
+  input_file: &input_file '/home/${USER}/combustion/PeleWorkflow/job-scholar/files/inputs-3d'
+  pmf_file: &pmf_file '/home/${USER}/combustion/PeleWorkflow/job-scholar/files/PMF_CH4_1bar_300K_DRM_MixAvg.dat'
+  probin_file: &probin_file '/home/${USER}/combustion/PeleWorkflow/job-scholar/files/probin-regt'
+  peleg_cpu: &peleg_cpu '/home/${USER}/combustion/PeleWorkflow/job-scholar/exes/peleg.intel.mpi.pmf.drm19.ex'
+  pelec_cpu: &pelec_cpu '/home/${USER}/combustion/PeleWorkflow/job-scholar/exes/pelec.intel.mpi.pmf.drm19.ex'
   my_post_args: &my_post_args 'amr.n_cell=384 384 384 geometry.prob_lo=-6.0 -6.0 -6.0 geometry.prob_hi=6.0 6.0 6.0 amr.max_level=2 max_step=5 amr.plot_files_output=1 amr.checkpoint_files_output=0'
 
 pele_job_set:
