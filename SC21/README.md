@@ -2,8 +2,10 @@
 
 ## Machine descriptions
 
-- [NREL Eagle compute node description](eagle-system.txt), using [the SC Tech Program Author Kit](https://github.com/SC-Tech-Program/Author-Kit).
-- [ORNL Summit compute node description](summit-system.txt), using [the SC Tech Program Author Kit](https://github.com/SC-Tech-Program/Author-Kit).
+Using [the SC Tech Program Author Kit](https://github.com/SC-Tech-Program/Author-Kit):
+
+- [NREL Eagle compute node description](eagle-system.txt)
+- [ORNL Summit compute node description](summit-system.txt)
 
 ## [job-scholar](../job-scholar) submission scripts
 
