@@ -1,17 +1,18 @@
 variables:
-  input_file: &input_file '/home/${USER}/combustion/PeleWorkflow/job-scholar/files/inputs-3d'
+  input_file: &input_file '/home/${USER}/combustion/PeleWorkflow/job-scholar/files/inputs_ex'
   pmf_file: &pmf_file '/home/${USER}/combustion/PeleWorkflow/job-scholar/files/PMF_CH4_1bar_300K_DRM_MixAvg.dat'
-  probin_file: &probin_file '/home/${USER}/combustion/PeleWorkflow/job-scholar/files/probin-regt'
-  peleg_cpu: &peleg_cpu '/home/${USER}/combustion/PeleWorkflow/job-scholar/exes/peleg.intel.mpi.pmf.drm19.ex'
-  pelec_cpu: &pelec_cpu '/home/${USER}/combustion/PeleWorkflow/job-scholar/exes/pelec.intel.mpi.pmf.drm19.ex'
-  my_post_args: &my_post_args 'amr.n_cell=384 384 384 geometry.prob_lo=-6.0 -6.0 -6.0 geometry.prob_hi=6.0 6.0 6.0 amr.max_level=2 max_step=5 amr.plot_files_output=1 amr.checkpoint_files_output=0'
+  pelec_exe: &pelec_exe '/home/${USER}/combustion/PeleWorkflow/job-scholar/exes/pelec.intel.mpi.pmf.drm19.ex'
+  my_post_args: &my_post_args 'amr.n_cell=384 384 384 geometry.prob_lo=-6.0 -6.0 -6.0 geometry.prob_hi=6.0 6.0 6.0 amr.max_level=2 max_step=5 amr.checkpoint_files_output=0 amr.plot_files_output=0 amr.plot_int=20 amr.checkpoint_files_output=0 pelec.do_mol=0 pelec.ppm_type=1 pelec.chem_integrator=2 ode.use_erkstep=1 prob.pamb=1013250.0 prob.phi_in=-0.5 prob.pertmag=0.005 prob.pmf_datafile="PMF_CH4_1bar_300K_DRM_MixAvg.dat" tagging.max_ftracerr_lev=4 tagging.ftracerr=1.0e-4 ode.rtol=1.0e-6 ode.atol=1.0e-10 pelec.cfl=0.1 pelec.init_shrink=1.0 pelec.change_max=1.0 pelec.dt_cutoff=5.e-20'
 
 pele_job_set:
   name: eagle-strong-scaling
   email: USER@nrel.gov
   mail_type: NONE
   project_allocation: exact
-  notes: PeleC/G Eagle strong scaling study for CPU 384^3 with 2 levels of AMR
+  notes: PeleC Eagle strong scaling study Figure 9
   pele_job_list:
-    - {executable: *pelec_cpu, input_file: *input_file, files_to_copy: [*pmf_file, *probin_file], queue: regular, mapping: skylake, compiler: intel, minutes: 120, nodes: 32, pre_args:, post_args: *my_post_args}
-    - {executable: *peleg_cpu, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: skylake, compiler: intel, minutes: 120, nodes: 32, pre_args:, post_args: *my_post_args}
+    - {executable: *pelec_exe, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: skylake, compiler: intel, minutes: 120, nodes: 32, pre_args:, post_args: *my_post_args}
+    - {executable: *pelec_exe, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: skylake, compiler: intel, minutes: 120, nodes: 64, pre_args:, post_args: *my_post_args}
+    - {executable: *pelec_exe, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: skylake, compiler: intel, minutes: 90, nodes: 128, pre_args:, post_args: *my_post_args}
+    - {executable: *pelec_exe, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: skylake, compiler: intel, minutes: 60, nodes: 256, pre_args:, post_args: *my_post_args}
+    - {executable: *pelec_exe, input_file: *input_file, files_to_copy: [*pmf_file], queue: regular, mapping: skylake, compiler: intel, minutes: 30, nodes: 512, pre_args:, post_args: *my_post_args}

@@ -1,23 +1,30 @@
-# Scripts for SC21 conference
+# Artifacts for SC21 conference
 
-## Machine descriptions
+## Machine characterization
 
-Using [the SC Tech Program Author Kit](https://github.com/SC-Tech-Program/Author-Kit):
+Results from the [the SC Tech Program Author Kit](https://github.com/SC-Tech-Program/Author-Kit):
 
 - [NREL Eagle compute node description](eagle-system.txt), more details at the [website](https://www.nrel.gov/hpc/eagle-system-configuration.html)
 - [ORNL Summit compute node description](summit-system.txt), more details at the [website](https://docs.olcf.ornl.gov/systems/summit_user_guide.html#summit-documentation-resources)
-- ANL Theta, more details at the [website](https://www.alcf.anl.gov/support-center/theta/theta-thetagpu-overview)
+- Authors have not renewed access to ANL Theta - More details at their [website](https://www.alcf.anl.gov/support-center/theta/theta-thetagpu-overview)
 
-## Submission job set files for [job-scholar](../job-scholar)
+## Files for generation of test cases
 
-The [submission script](submit-jobs.py), is used as `python3 submit-jobs.py FILENAME`, where `FILENAME` is one of the following: 
+- [Example build procedure for ORNL Summit](summit-build-pelec.sh)
+- [Example build procedure for NREL Eagle](eagle-build-pelec.sh)
+- [Example input file for PMF case](inputs_ex) and [initial flow condition setup](PMF_CH4_1bar_300K_DRM_MixAvg.dat)
+- [Example input file for piston bowl case](inputs_ex_pb)
 
-- [Strong scaling job set file for NREL Eagle](strong-scaling-eagle.yaml) (Figure 9, 10 in paper)
-- [Strong scaling job set file for ORNL Summit](strong-scaling-summit.yaml) (Figure 9, 10, and 11 in paper)
-- [Weak scaling  job set file for ORNL Summit](weak-scaling-summit.yaml) (Figure 12 in paper)
+Figure 3 requires the PeleC branch [here](https://github.com/AMReX-Combustion/PeleC/tree/jrood/cuda_acc)
 
-## Case specific files
+## Submission files for the [job-scholar](../job-scholar) job submission framework
 
-- [Build script for ORNL Summit](summit-build-pelec.sh)
-- [Input file for PMF case](inputs_ex) and [initial flow condition setup](PMF_CH4_1bar_300K_DRM_MixAvg.dat)
-- [Input file for piston bowl case](inputs_ex_pb)
+The [submission script](submit-jobs.py), is used as `python submit-jobs.py FILENAME`, where `FILENAME` is one of the following: 
+
+- [Example strong scaling job set file for NREL Eagle](strong-scaling-eagle.yaml) (Figure 9, 10 in paper)
+- [Example strong scaling job set file for ORNL Summit](strong-scaling-summit.yaml) (Figure 9, 10, and 11 in paper)
+- [Example weak scaling job set file for ORNL Summit](weak-scaling-summit.yaml) (Figure 12 in paper)
+
+Job-scholar generates submission scripts for each listed job in a very particular fashion for each supported machine. Although we have not recreated every YAML file necessary to recreate the figures, we provide several examples which demonstrate the exercise.
+
+
