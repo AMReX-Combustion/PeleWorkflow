@@ -6,7 +6,7 @@ Results from the [the SC Tech Program Author Kit](https://github.com/SC-Tech-Pro
 
 - [NREL Eagle compute node description](eagle-system.txt), more details at the [website](https://www.nrel.gov/hpc/eagle-system-configuration.html)
 - [ORNL Summit compute node description](summit-system.txt), more details at the [website](https://docs.olcf.ornl.gov/systems/summit_user_guide.html#summit-documentation-resources)
-- Authors have not renewed access to ANL Theta - More details at their [website](https://www.alcf.anl.gov/support-center/theta/theta-thetagpu-overview)
+- Authors have not renewed access to ANL Theta and cannot perform introspection - More details at their [website](https://www.alcf.anl.gov/support-center/theta/theta-thetagpu-overview)
 
 ## Files for generation of test cases
 
