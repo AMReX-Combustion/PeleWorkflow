@@ -8,7 +8,7 @@ variables:
 
 pele_job_set:
   name: eagle-strong-scaling
-  email: jon.rood@nrel.gov
+  email: USER@nrel.gov
   mail_type: NONE
   project_allocation: exact
   notes: PeleC/G Eagle strong scaling study for CPU 384^3 with 2 levels of AMR

@@ -6,7 +6,7 @@ variables:
 
 pele_job_set:
   name: pelec-summit-weak-scaling
-  email: jon.rood@nrel.gov
+  email: USER@nrel.gov
   mail_type: NONE
   project_allocation: CMB138
   notes: PeleC Summit weak scaling study
