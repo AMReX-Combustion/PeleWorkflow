@@ -17,6 +17,6 @@ The [submission script](submit-jobs.py), is used as `python3 submit-jobs.py FILE
 
 ## Case specific files
 
-- [Build script for Summit](summit-build-pelec.sh)
+- [Build script for ORNL Summit](summit-build-pelec.sh)
 - [Input file for PMF case](inputs_ex) and [initial flow condition setup](PMF_CH4_1bar_300K_DRM_MixAvg.dat)
 - [Input file for piston bowl case](inputs_ex_pb)
