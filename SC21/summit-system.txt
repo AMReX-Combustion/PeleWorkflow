@@ -1,0 +1,385 @@
+LMOD_FAMILY_COMPILER_VERSION=16.1.1-5
+MANPATH=/sw/sources/hpss/man:/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/xl-16.1.1-5/spectrum-mpi-10.3.1.2-20200121-p6nrnt6vtvkn356wqg6f74n6jspnpjd2/share/man:/sw/summit/xl/16.1.1-5/xlC/16.1.1/man/en_US:/sw/summit/xl/16.1.1-5/xlf/16.1.1/man/en_US:/sw/summit/lmod/8.2.10/share/man:/opt/ibm/spectrumcomputing/lsf/10.1.0.9/man:::/opt/puppetlabs/puppet/share/man
+XALT_ETC_DIR=/sw/summit/xalt/1.2.1/etc
+XDG_SESSION_ID=24156
+LSB_EXEC_CLUSTER=summit
+_ModuleTable003_=LH0sWyJsc2YtdG9vbHMiXT17WyJmbiJdPSIvc3cvc3VtbWl0L21vZHVsZWZpbGVzL3NpdGUvbGludXgtcmhlbDctcHBjNjRsZS9Db3JlL2xzZi10b29scy8yLjAubHVhIixbImZ1bGxOYW1lIl09ImxzZi10b29scy8yLjAiLFsibG9hZE9yZGVyIl09NSxwcm9wVD17fSxbInN0YWNrRGVwdGgiXT0xLFsic3RhdHVzIl09ImFjdGl2ZSIsWyJ1c2VyTmFtZSJdPSJsc2YtdG9vbHMiLH0sWyJzcGVjdHJ1bS1tcGkiXT17WyJmbiJdPSIvc3cvc3VtbWl0L21vZHVsZWZpbGVzL3NpdGUvbGludXgtcmhlbDctcHBjNjRsZS94bC8xNi4xLjEtNS9zcGVjdHJ1bS1tcGkvMTAuMy4xLjItMjAyMDAxMjEubHVhIixbImZ1bGxOYW1lIl09InNwZWN0cnVtLW1waS8xMC4zLjEuMi0yMDIwMDEyMSIs
+HOSTNAME=batch2
+LSB_EFFECTIVE_RSRCREQ=1*{select[((LN) && (type == any))] order[r15s:pg] span[hosts=1] cu[type=rack:pref=config]}+42*{select[((CN) && (type == any))] order[r15s:pg] span[ptile=42] cu[type=rack:pref=config]}
+LSF_LOGDIR=/var/log/lsf
+LSF_LIM_API_NTRIES=1
+__LMOD_REF_COUNT_MODULEPATH=/autofs/nccs-svm1_sw/summit/modulefiles/site/linux-rhel7-ppc64le/spectrum-mpi/10.3.1.2-20200121-p6nrnt6/xl/16.1.1-5:1;/sw/summit/modulefiles/site/linux-rhel7-ppc64le/xl/16.1.1-5:1;/sw/summit/modulefiles/site/linux-rhel7-ppc64le/Core:1;/sw/summit/modulefiles/core:1
+SHELL=/bin/bash
+LSB_BATCH_JID=1038386
+LMOD_ROOT=/sw/summit/lmod
+HISTSIZE=1000
+SSH_CLIENT=192.174.37.51 21148 22
+MODULEPATH_ROOT=/sw/summit/modulefiles
+LMOD_SYSTEM_DEFAULT_MODULES=DefApps
+LIBRARY_PATH=/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/darshan-runtime-3.1.7-cnvxicgf5j4ap64qi6v5gxp67hmrjz43/lib:/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/xl-16.1.1-5/spectrum-mpi-10.3.1.2-20200121-p6nrnt6vtvkn356wqg6f74n6jspnpjd2/lib
+LSB_TRAPSIGS=trap # 15 10 12 2 1
+LS_EXECCWD=/ccs/home/USER/Author-Kit
+PAMI_IBV_ADAPTER_AFFINITY=1
+LS_JOBPID=14852
+LMOD_PKG=/sw/summit/lmod/8.2.10
+LSB_MAX_NUM_PROCESSORS=43
+LSB_JOBRES_CALLBACK=41761@batch2
+OLCF_XL_ROOT=/sw/summit/xl/16.1.1-5
+LSF_SERVERDIR=/opt/ibm/spectrumcomputing/lsf/10.1.0.9/linux3.10-glibc2.17-ppc64le-csm/etc
+PAMI_ENABLE_STRIPING=0
+LSB_JOBID=1038386
+LSB_JOB_EXECUSER=USER
+OMPI_FC=/sw/summit/xl/16.1.1-5/xlf/16.1.1/bin/xlf2008_r
+LMOD_VERSION=8.2.10
+LSB_JOBRES_PID=14852
+OLCF_DARSHAN_RUNTIME_ROOT=/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/darshan-runtime-3.1.7-cnvxicgf5j4ap64qi6v5gxp67hmrjz43
+OLCF_XLSMP_ROOT=/sw/summit/xl/16.1.1-5/xlsmp/5.1.1
+SSH_TTY=/dev/pts/57
+LSB_JOBNAME=Not_Specified
+__LMOD_REF_COUNT_CMAKE_PREFIX_PATH=/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/darshan-runtime-3.1.7-cnvxicgf5j4ap64qi6v5gxp67hmrjz43:1;/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/xl-16.1.1-5/spectrum-mpi-10.3.1.2-20200121-p6nrnt6vtvkn356wqg6f74n6jspnpjd2:1
+__LMOD_REF_COUNT_LOADEDMODULES=xl/16.1.1-5:1;spectrum-mpi/10.3.1.2-20200121:1;hsi/5.0.2.p5:1;xalt/1.2.1:1;lsf-tools/2.0:1;darshan-runtime/3.1.7:1;DefApps:1
+BSUB_BLOCK_EXEC_HOST=
+LSF_LIBDIR=/opt/ibm/spectrumcomputing/lsf/10.1.0.9/linux3.10-glibc2.17-ppc64le-csm/lib
+OPAL_PREFIX=/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/xl-16.1.1-5/spectrum-mpi-10.3.1.2-20200121-p6nrnt6vtvkn356wqg6f74n6jspnpjd2
+LSB_PROJECT_NAME=CMB138
+USER=USER
+LS_COLORS=rs=0:di=38;5;27:ln=38;5;51:mh=44;38;5;15:pi=40;38;5;11:so=38;5;13:do=38;5;5:bd=48;5;232;38;5;11:cd=48;5;232;38;5;3:or=48;5;232;38;5;9:mi=05;48;5;232;38;5;15:su=48;5;196;38;5;15:sg=48;5;11;38;5;16:ca=48;5;196;38;5;226:tw=48;5;10;38;5;16:ow=48;5;10;38;5;21:st=48;5;21;38;5;15:ex=38;5;34:*.tar=38;5;9:*.tgz=38;5;9:*.arc=38;5;9:*.arj=38;5;9:*.taz=38;5;9:*.lha=38;5;9:*.lz4=38;5;9:*.lzh=38;5;9:*.lzma=38;5;9:*.tlz=38;5;9:*.txz=38;5;9:*.tzo=38;5;9:*.t7z=38;5;9:*.zip=38;5;9:*.z=38;5;9:*.Z=38;5;9:*.dz=38;5;9:*.gz=38;5;9:*.lrz=38;5;9:*.lz=38;5;9:*.lzo=38;5;9:*.xz=38;5;9:*.bz2=38;5;9:*.bz=38;5;9:*.tbz=38;5;9:*.tbz2=38;5;9:*.tz=38;5;9:*.deb=38;5;9:*.rpm=38;5;9:*.jar=38;5;9:*.war=38;5;9:*.ear=38;5;9:*.sar=38;5;9:*.rar=38;5;9:*.alz=38;5;9:*.ace=38;5;9:*.zoo=38;5;9:*.cpio=38;5;9:*.7z=38;5;9:*.rz=38;5;9:*.cab=38;5;9:*.jpg=38;5;13:*.jpeg=38;5;13:*.gif=38;5;13:*.bmp=38;5;13:*.pbm=38;5;13:*.pgm=38;5;13:*.ppm=38;5;13:*.tga=38;5;13:*.xbm=38;5;13:*.xpm=38;5;13:*.tif=38;5;13:*.tiff=38;5;13:*.png=38;5;13:*.svg=38;5;13:*.svgz=38;5;13:*.mng=38;5;13:*.pcx=38;5;13:*.mov=38;5;13:*.mpg=38;5;13:*.mpeg=38;5;13:*.m2v=38;5;13:*.mkv=38;5;13:*.webm=38;5;13:*.ogm=38;5;13:*.mp4=38;5;13:*.m4v=38;5;13:*.mp4v=38;5;13:*.vob=38;5;13:*.qt=38;5;13:*.nuv=38;5;13:*.wmv=38;5;13:*.asf=38;5;13:*.rm=38;5;13:*.rmvb=38;5;13:*.flc=38;5;13:*.avi=38;5;13:*.fli=38;5;13:*.flv=38;5;13:*.gl=38;5;13:*.dl=38;5;13:*.xcf=38;5;13:*.xwd=38;5;13:*.yuv=38;5;13:*.cgm=38;5;13:*.emf=38;5;13:*.axv=38;5;13:*.anx=38;5;13:*.ogv=38;5;13:*.ogx=38;5;13:*.aac=38;5;45:*.au=38;5;45:*.flac=38;5;45:*.mid=38;5;45:*.midi=38;5;45:*.mka=38;5;45:*.mp3=38;5;45:*.mpc=38;5;45:*.ogg=38;5;45:*.ra=38;5;45:*.wav=38;5;45:*.axa=38;5;45:*.oga=38;5;45:*.spx=38;5;45:*.xspf=38;5;45:
+LMOD_sys=Linux
+LD_LIBRARY_PATH=/opt/ibm/spectrumcomputing/lsf/10.1.0.9/linux3.10-glibc2.17-ppc64le-csm/lib:/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/darshan-runtime-3.1.7-cnvxicgf5j4ap64qi6v5gxp67hmrjz43/lib:/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/xl-16.1.1-5/spectrum-mpi-10.3.1.2-20200121-p6nrnt6vtvkn356wqg6f74n6jspnpjd2/lib:/sw/summit/xl/16.1.1-5/xlsmp/5.1.1/lib:/sw/summit/xl/16.1.1-5/xlmass/9.1.1/lib:/sw/summit/xl/16.1.1-5/xlC/16.1.1/lib:/sw/summit/xl/16.1.1-5/xlf/16.1.1/lib:/sw/summit/xl/16.1.1-5/lib
+SBD_KRB5CCNAME_VAL=
+PAMI_IBV_ENABLE_OOO_AR=1
+LSB_EEXEC_REAL_UID=
+LMOD_MPI_NAME=spectrum-mpi
+CPATH=/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/xl-16.1.1-5/spectrum-mpi-10.3.1.2-20200121-p6nrnt6vtvkn356wqg6f74n6jspnpjd2/include
+_ModuleTable004_=WyJsb2FkT3JkZXIiXT0yLHByb3BUPXt9LFsic3RhY2tEZXB0aCJdPTEsWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09InNwZWN0cnVtLW1waSIsfSx4YWx0PXtbImZuIl09Ii9zdy9zdW1taXQvbW9kdWxlZmlsZXMvc2l0ZS9saW51eC1yaGVsNy1wcGM2NGxlL0NvcmUveGFsdC8xLjIuMS5sdWEiLFsiZnVsbE5hbWUiXT0ieGFsdC8xLjIuMSIsWyJsb2FkT3JkZXIiXT00LHByb3BUPXt9LFsic3RhY2tEZXB0aCJdPTEsWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09InhhbHQiLH0seGw9e1siZm4iXT0iL3N3L3N1bW1pdC9tb2R1bGVmaWxlcy9zaXRlL2xpbnV4LXJoZWw3LXBwYzY0bGUvQ29yZS94bC8xNi4xLjEtNS5sdWEiLFsiZnVsbE5hbWUiXT0ieGwv
+HOSTTYPE=LINUXPPC64LE
+__LMOD_REF_COUNT__LMFILES_=/sw/summit/modulefiles/site/linux-rhel7-ppc64le/Core/xl/16.1.1-5.lua:1;/sw/summit/modulefiles/site/linux-rhel7-ppc64le/xl/16.1.1-5/spectrum-mpi/10.3.1.2-20200121.lua:1;/sw/summit/modulefiles/site/linux-rhel7-ppc64le/Core/hsi/5.0.2.p5.lua:1;/sw/summit/modulefiles/site/linux-rhel7-ppc64le/Core/xalt/1.2.1.lua:1;/sw/summit/modulefiles/site/linux-rhel7-ppc64le/Core/lsf-tools/2.0.lua:1;/sw/summit/modulefiles/site/linux-rhel7-ppc64le/Core/darshan-runtime/3.1.7.lua:1;/sw/summit/modulefiles/site/linux-rhel7-ppc64le/Core/DefApps.lua:1
+LSF_INVOKE_CMD=bsub
+OLCF_XLMASS_ROOT=/sw/summit/xl/16.1.1-5/xlmass/9.1.1
+OLCF_LMOD_ROOT=/sw/summit
+LS_EXEC_T=START
+OLCF_FAMILY_MPI_VERSION=10.3.1.2-20200121
+PROJWORK=/gpfs/alpine/proj-shared
+LSF_VERSION=34
+LS_SUBCWD=/ccs/home/USER/Author-Kit
+LSB_SUB_RES_REQ=1*{select[LN]span[hosts=1]} + 42*{select[CN]span[ptile=42]}
+LSB_UNIXGROUP_INT=USER
+LMOD_FAMILY_MPI_VERSION=10.3.1.2-20200121
+LSB_HOSTS=batch2 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06 h20n06
+NLSPATH=/sw/summit/xl/16.1.1-5/msg/en_US/%N:/sw/summit/xl/16.1.1-5/xlC/16.1.1/msg/en_US/%N:/sw/summit/xl/16.1.1-5/xlf/16.1.1/msg/en_US/%N
+OLCF_FAMILY_MPI=spectrum-mpi
+LSB_JOBFILENAME=/ccs/home/USER/.lsbatch/1622219500.1038386
+__LMOD_REF_COUNT_NLSPATH=/sw/summit/xl/16.1.1-5/msg/en_US/%N:2;/sw/summit/xl/16.1.1-5/xlC/16.1.1/msg/en_US/%N:1;/sw/summit/xl/16.1.1-5/xlf/16.1.1/msg/en_US/%N:1
+_ModuleTable001_=X01vZHVsZVRhYmxlXz17WyJNVHZlcnNpb24iXT0zLFsiY19yZWJ1aWxkVGltZSJdPWZhbHNlLFsiY19zaG9ydFRpbWUiXT1mYWxzZSxkZXB0aFQ9e30sZmFtaWx5PXtbImNvbXBpbGVyIl09InhsIixbIm1waSJdPSJzcGVjdHJ1bS1tcGkiLH0sbVQ9e0RlZkFwcHM9e1siZm4iXT0iL3N3L3N1bW1pdC9tb2R1bGVmaWxlcy9zaXRlL2xpbnV4LXJoZWw3LXBwYzY0bGUvQ29yZS9EZWZBcHBzLmx1YSIsWyJmdWxsTmFtZSJdPSJEZWZBcHBzIixbImxvYWRPcmRlciJdPTcscHJvcFQ9e30sWyJzdGFja0RlcHRoIl09MCxbInN0YXR1cyJdPSJhY3RpdmUiLFsidXNlck5hbWUiXT0iRGVmQXBwcyIsfSxbImRhcnNoYW4tcnVudGltZSJdPXtbImZuIl09Ii9zdy9zdW1taXQvbW9kdWxlZmls
+PATH=/opt/ibm/spectrumcomputing/lsf/10.1.0.9/linux3.10-glibc2.17-ppc64le-csm/bin:/sw/sources/lsf-tools/2.0/summit/bin:/sw/summit/xalt/1.2.1/bin:/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/darshan-runtime-3.1.7-cnvxicgf5j4ap64qi6v5gxp67hmrjz43/bin:/sw/sources/hpss/bin:/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/xl-16.1.1-5/spectrum-mpi-10.3.1.2-20200121-p6nrnt6vtvkn356wqg6f74n6jspnpjd2/bin:/sw/summit/xl/16.1.1-5/xlC/16.1.1/bin:/sw/summit/xl/16.1.1-5/xlf/16.1.1/bin:/opt/ibm/spectrumcomputing/lsf/10.1.0.9/linux3.10-glibc2.17-ppc64le-csm/etc:/opt/ibm/csm/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/ibm/flightlog/bin:/opt/ibutils/bin:/opt/ibm/spectrum_mpi/jsm_pmix/bin:/opt/puppetlabs/bin:/usr/lpp/mmfs/bin
+MAIL=/var/spool/mail/USER
+LSB_JOBINDEX=0
+PAMI_IBV_QP_SERVICE_LEVEL=8
+_=/usr/bin/env
+OLCF_XLC_ROOT=/sw/summit/xl/16.1.1-5/xlC/16.1.1
+OPAL_LIBDIR=/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/xl-16.1.1-5/spectrum-mpi-10.3.1.2-20200121-p6nrnt6vtvkn356wqg6f74n6jspnpjd2/lib
+LSB_EXIT_PRE_ABORT=99
+LSB_JOBEXIT_STAT=0
+OMPI_DIR=/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/xl-16.1.1-5/spectrum-mpi-10.3.1.2-20200121-p6nrnt6vtvkn356wqg6f74n6jspnpjd2
+PAMI_CUDA_AWARE_THRESH=320000
+PWD=/ccs/home/USER/Author-Kit
+_LMFILES_=/sw/summit/modulefiles/site/linux-rhel7-ppc64le/Core/xl/16.1.1-5.lua:/sw/summit/modulefiles/site/linux-rhel7-ppc64le/xl/16.1.1-5/spectrum-mpi/10.3.1.2-20200121.lua:/sw/summit/modulefiles/site/linux-rhel7-ppc64le/Core/hsi/5.0.2.p5.lua:/sw/summit/modulefiles/site/linux-rhel7-ppc64le/Core/xalt/1.2.1.lua:/sw/summit/modulefiles/site/linux-rhel7-ppc64le/Core/lsf-tools/2.0.lua:/sw/summit/modulefiles/site/linux-rhel7-ppc64le/Core/darshan-runtime/3.1.7.lua:/sw/summit/modulefiles/site/linux-rhel7-ppc64le/Core/DefApps.lua
+OLCF_MODULEPATH_ROOT=/sw/summit/modulefiles
+__LMOD_REF_COUNT_PYTHONPATH=/sw/summit/xalt/1.2.1/site:1;/sw/summit/xalt/1.2.1/libexec:1
+LSB_RES_GET_FANOUT_INFO=Y
+MODULEPATH=/autofs/nccs-svm1_sw/summit/modulefiles/site/linux-rhel7-ppc64le/spectrum-mpi/10.3.1.2-20200121-p6nrnt6/xl/16.1.1-5:/sw/summit/modulefiles/site/linux-rhel7-ppc64le/xl/16.1.1-5:/sw/summit/modulefiles/site/linux-rhel7-ppc64le/Core:/sw/summit/modulefiles/core
+LSB_CHKFILENAME=/ccs/home/USER/.lsbatch/1622219500.1038386
+_ModuleTable_Sz_=6
+OLCF_FAMILY_COMPILER_VERSION=16.1.1-5
+LOADEDMODULES=xl/16.1.1-5:spectrum-mpi/10.3.1.2-20200121:hsi/5.0.2.p5:xalt/1.2.1:lsf-tools/2.0:darshan-runtime/3.1.7:DefApps
+LMOD_SYSTEM_NAME=summit
+LSB_DJOB_HOSTFILE=/ccs/home/USER/.lsbatch/1622219500.1038386.hostfile
+OMPI_LD_PRELOAD_PREPEND=/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/darshan-runtime-3.1.7-cnvxicgf5j4ap64qi6v5gxp67hmrjz43/lib/libdarshan.so
+OLCF_FAMILY_COMPILER=xl
+OLCF_XLF_ROOT=/sw/summit/xl/16.1.1-5/xlf/16.1.1
+LSF_JOB_TIMESTAMP_VALUE=1622219506
+_ModuleTable005_=MTYuMS4xLTUiLFsibG9hZE9yZGVyIl09MSxwcm9wVD17fSxbInN0YWNrRGVwdGgiXT0xLFsic3RhdHVzIl09ImFjdGl2ZSIsWyJ1c2VyTmFtZSJdPSJ4bCIsfSx9LG1wYXRoQT17Ii9hdXRvZnMvbmNjcy1zdm0xX3N3L3N1bW1pdC9tb2R1bGVmaWxlcy9zaXRlL2xpbnV4LXJoZWw3LXBwYzY0bGUvc3BlY3RydW0tbXBpLzEwLjMuMS4yLTIwMjAwMTIxLXA2bnJudDYveGwvMTYuMS4xLTUiLCIvc3cvc3VtbWl0L21vZHVsZWZpbGVzL3NpdGUvbGludXgtcmhlbDctcHBjNjRsZS94bC8xNi4xLjEtNSIsIi9zdy9zdW1taXQvbW9kdWxlZmlsZXMvc2l0ZS9saW51eC1yaGVsNy1wcGM2NGxlL0NvcmUiLCIvc3cvc3VtbWl0L21vZHVsZWZpbGVzL2NvcmUiLH0sWyJzeXN0ZW1CYXNlTVBB
+LMOD_CMD=/sw/summit/lmod/8.2.10/libexec/lmod
+LSB_AFFINITY_HOSTFILE=/ccs/home/USER/.lsbatch/1622219500.1038386.hostAffinityFile
+LSF_BINDIR=/opt/ibm/spectrumcomputing/lsf/10.1.0.9/linux3.10-glibc2.17-ppc64le-csm/bin
+LSB_EXEC_HOSTTYPE=LINUXPPC64LE
+LSB_DJOB_NUMPROC=43
+HISTCONTROL=ignoredups
+WORLDWORK=/gpfs/alpine/world-shared
+SHLVL=3
+MEMBERWORK=/gpfs/alpine/scratch/USER
+HOME=/ccs/home/USER
+OMPI_CC=/sw/summit/xl/16.1.1-5/xlC/16.1.1/bin/xlc_r
+__LMOD_REF_COUNT_PATH=/sw/sources/lsf-tools/2.0/summit/bin:2;/sw/summit/xalt/1.2.1/bin:1;/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/darshan-runtime-3.1.7-cnvxicgf5j4ap64qi6v5gxp67hmrjz43/bin:1;/sw/sources/hpss/bin:1;/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/xl-16.1.1-5/spectrum-mpi-10.3.1.2-20200121-p6nrnt6vtvkn356wqg6f74n6jspnpjd2/bin:1;/sw/summit/xl/16.1.1-5/xlC/16.1.1/bin:1;/sw/summit/xl/16.1.1-5/xlf/16.1.1/bin:1;/opt/ibm/spectrumcomputing/lsf/10.1.0.9/linux3.10-glibc2.17-ppc64le-csm/etc:1;/opt/ibm/spectrumcomputing/lsf/10.1.0.9/linux3.10-glibc2.17-ppc64le-csm/bin:1;/opt/ibm/csm/bin:1;/usr/local/bin:1;/usr/bin:1;/usr/local/sbin:1;/usr/sbin:1;/opt/ibm/flightlog/bin:1;/opt/ibutils/bin:1;/opt/ibm/spectrum_mpi/jsm_pmix/bin:1
+LSB_APPLICATION_NAME=small
+__LMOD_REF_COUNT_CPATH=/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/xl-16.1.1-5/spectrum-mpi-10.3.1.2-20200121-p6nrnt6vtvkn356wqg6f74n6jspnpjd2/include:1
+JOB_TERMINATE_INTERVAL=10
+_ModuleTable002_=ZXMvc2l0ZS9saW51eC1yaGVsNy1wcGM2NGxlL0NvcmUvZGFyc2hhbi1ydW50aW1lLzMuMS43Lmx1YSIsWyJmdWxsTmFtZSJdPSJkYXJzaGFuLXJ1bnRpbWUvMy4xLjciLFsibG9hZE9yZGVyIl09Nixwcm9wVD17fSxbInN0YWNrRGVwdGgiXT0xLFsic3RhdHVzIl09ImFjdGl2ZSIsWyJ1c2VyTmFtZSJdPSJkYXJzaGFuLXJ1bnRpbWUiLH0saHNpPXtbImZuIl09Ii9zdy9zdW1taXQvbW9kdWxlZmlsZXMvc2l0ZS9saW51eC1yaGVsNy1wcGM2NGxlL0NvcmUvaHNpLzUuMC4yLnA1Lmx1YSIsWyJmdWxsTmFtZSJdPSJoc2kvNS4wLjIucDUiLFsibG9hZE9yZGVyIl09Myxwcm9wVD17fSxbInN0YWNrRGVwdGgiXT0xLFsic3RhdHVzIl09ImFjdGl2ZSIsWyJ1c2VyTmFtZSJdPSJoc2ki
+BINARY_TYPE_HPC=
+CSM_ALLOCATION_ID=2119347
+LSB_ACCT_FILE=/tmp/1038386.tmpdir/.1622219500.1038386.acct
+LSB_SUB_HOST=login2
+BASH_ENV=/sw/summit/lmod/8.2.10/init/bash
+OLCF_HSI_ROOT=/sw/sources/hpss
+LSFUSER=USER
+LSB_SUB_USER=USER
+__LSF_JOB_TMPDIR__=/tmp/1038386.tmpdir
+PYTHONPATH=/sw/summit/xalt/1.2.1/site:/sw/summit/xalt/1.2.1/libexec
+MPI_ROOT=/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/xl-16.1.1-5/spectrum-mpi-10.3.1.2-20200121-p6nrnt6vtvkn356wqg6f74n6jspnpjd2
+LOGNAME=USER
+PAMI_IBV_ENABLE_DCT=1
+LSB_OUTPUTFILE=Not_Specified.1038386
+LSB_MCPU_HOSTS=batch2 1 h20n06 42 
+LSB_QUEUE=batch
+LSB_OUTDIR=/ccs/home/USER/Author-Kit
+OLCF_SPECTRUM_MPI_ROOT=/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/xl-16.1.1-5/spectrum-mpi-10.3.1.2-20200121-p6nrnt6vtvkn356wqg6f74n6jspnpjd2
+CVS_RSH=ssh
+SSH_CONNECTION=192.174.37.51 21148 128.219.134.72 22
+XLSF_UIDDIR=/opt/ibm/spectrumcomputing/lsf/10.1.0.9/linux3.10-glibc2.17-ppc64le-csm/lib/uid
+__LMOD_REF_COUNT_LIBRARY_PATH=/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/darshan-runtime-3.1.7-cnvxicgf5j4ap64qi6v5gxp67hmrjz43/lib:1;/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/xl-16.1.1-5/spectrum-mpi-10.3.1.2-20200121-p6nrnt6vtvkn356wqg6f74n6jspnpjd2/lib:1
+MODULESHOME=/sw/summit/lmod/8.2.10
+JSM_JSRUN_NO_WARN_TOPOLOGY=1
+LSB_ECHKPNT_RSH_CMD=ssh -o 'PasswordAuthentication no' -o 'StrictHostKeyChecking no'
+PKG_CONFIG_PATH=/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/darshan-runtime-3.1.7-cnvxicgf5j4ap64qi6v5gxp67hmrjz43/lib/pkgconfig
+OMPI_CXX=/sw/summit/xl/16.1.1-5/xlC/16.1.1/bin/xlc++_r
+__LMOD_REF_COUNT_LD_LIBRARY_PATH=/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/darshan-runtime-3.1.7-cnvxicgf5j4ap64qi6v5gxp67hmrjz43/lib:1;/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/xl-16.1.1-5/spectrum-mpi-10.3.1.2-20200121-p6nrnt6vtvkn356wqg6f74n6jspnpjd2/lib:1;/sw/summit/xl/16.1.1-5/xlsmp/5.1.1/lib:1;/sw/summit/xl/16.1.1-5/xlmass/9.1.1/lib:1;/sw/summit/xl/16.1.1-5/xlC/16.1.1/lib:1;/sw/summit/xl/16.1.1-5/xlf/16.1.1/lib:1;/sw/summit/xl/16.1.1-5/lib:1;/opt/ibm/spectrumcomputing/lsf/10.1.0.9/linux3.10-glibc2.17-ppc64le-csm/lib:1
+LMOD_SETTARG_FULL_SUPPORT=no
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+LSF_CGROUP_TOPDIR_KEY=summit
+LMOD_MPI_VERSION=10.3.1.2-20200121-p6nrnt6
+OMPI_MCA_io=romio321
+__Init_Default_Modules=1
+LMOD_FAMILY_COMPILER=xl
+LSB_XFER_OP=
+XL_LINKER=/sw/summit/xalt/1.2.1/bin/ld
+__LMOD_REF_COUNT_PKG_CONFIG_PATH=/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/darshan-runtime-3.1.7-cnvxicgf5j4ap64qi6v5gxp67hmrjz43/lib/pkgconfig:1
+CMAKE_PREFIX_PATH=/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/gcc-4.8.5/darshan-runtime-3.1.7-cnvxicgf5j4ap64qi6v5gxp67hmrjz43:/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/xl-16.1.1-5/spectrum-mpi-10.3.1.2-20200121-p6nrnt6vtvkn356wqg6f74n6jspnpjd2
+XDG_RUNTIME_DIR=/run/user/14926
+XALT_OLCF=1
+LSB_EEXEC_REAL_GID=
+_ModuleTable006_=VEgiXT0iL3N3L3N1bW1pdC9tb2R1bGVmaWxlcy9zaXRlL2xpbnV4LXJoZWw3LXBwYzY0bGUvQ29yZTovc3cvc3VtbWl0L21vZHVsZWZpbGVzL2NvcmUiLH0=
+__LMOD_REF_COUNT_MANPATH=/sw/sources/hpss/man:1;/autofs/nccs-svm1_sw/summit/.swci/1-compute/opt/spack/20180914/linux-rhel7-ppc64le/xl-16.1.1-5/spectrum-mpi-10.3.1.2-20200121-p6nrnt6vtvkn356wqg6f74n6jspnpjd2/share/man:1;/sw/summit/xl/16.1.1-5/xlC/16.1.1/man/en_US:1;/sw/summit/xl/16.1.1-5/xlf/16.1.1/man/en_US:1;/sw/summit/lmod/8.2.10/share/man:1;/opt/ibm/spectrumcomputing/lsf/10.1.0.9/man:1
+LMOD_DIR=/sw/summit/lmod/8.2.10/libexec
+LSF_ENVDIR=/opt/ibm/spectrumcomputing/lsf/conf
+__LMOD_Priority_PATH=/sw/sources/lsf-tools/2.0/summit/bin:-9999;/sw/summit/xalt/1.2.1/bin:-9999
+LMOD_FAMILY_MPI=spectrum-mpi
+LSB_DJOB_RANKFILE=/ccs/home/USER/.lsbatch/1622219500.1038386.hostfile
+BASH_FUNC_module()=() {  eval $($LMOD_CMD bash "$@") && eval $(${LMOD_SETTARG_CMD:-:} -s sh)
+}
+BASH_FUNC_ml()=() {  eval $($LMOD_DIR/ml_cmd "$@")
+}
++ lsb_release -a
+LSB Version:	:core-4.1-noarch:core-4.1-ppc64le
+Distributor ID:	RedHatEnterpriseServer
+Description:	Red Hat Enterprise Linux Server release 7.6 (Maipo)
+Release:	7.6
+Codename:	Maipo
++ uname -a
+Linux batch2 4.14.0-115.21.2.el7a.ppc64le #1 SMP Thu May 7 22:22:31 UTC 2020 ppc64le ppc64le ppc64le GNU/Linux
++ lscpu
+Architecture:          ppc64le
+Byte Order:            Little Endian
+CPU(s):                128
+On-line CPU(s) list:   0-127
+Thread(s) per core:    4
+Core(s) per socket:    16
+Socket(s):             2
+NUMA node(s):          6
+Model:                 2.1 (pvr 004e 1201)
+Model name:            POWER9, altivec supported
+CPU max MHz:           3800.0000
+CPU min MHz:           2300.0000
+L1d cache:             32K
+L1i cache:             32K
+L2 cache:              512K
+L3 cache:              10240K
+NUMA node0 CPU(s):     0-63
+NUMA node8 CPU(s):     64-127
+NUMA node252 CPU(s):   
+NUMA node253 CPU(s):   
+NUMA node254 CPU(s):   
+NUMA node255 CPU(s):   
++ cat /proc/meminfo
+MemTotal:       601183424 kB
+MemFree:        370471040 kB
+MemAvailable:   424996992 kB
+Buffers:               0 kB
+Cached:         76815296 kB
+SwapCached:            0 kB
+Active:         47554624 kB
+Inactive:       37348800 kB
+Active(anon):   31832192 kB
+Inactive(anon): 15311040 kB
+Active(file):   15722432 kB
+Inactive(file): 22037760 kB
+Unevictable:    16808960 kB
+Mlocked:        16808960 kB
+SwapTotal:             0 kB
+SwapFree:              0 kB
+Dirty:               192 kB
+Writeback:             0 kB
+AnonPages:      24897344 kB
+Mapped:         87079232 kB
+Shmem:          39059200 kB
+Slab:           30541632 kB
+SReclaimable:   19366592 kB
+SUnreclaim:     11175040 kB
+KernelStack:       57376 kB
+PageTables:       254080 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    300591680 kB
+Committed_AS:   70527424 kB
+VmallocTotal:   549755813888 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:   3244032 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+CmaTotal:       26853376 kB
+CmaFree:        26853248 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
++ inxi -F -c0
+/ccs/home/${USER}/.lsbatch/1622219500.1038386.shell: line 14: inxi: command not found
++ lsblk -a
+NAME  MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+sdb     8:16   1  1.8T  0 disk 
+loop0   7:0    0        1 loop 
+sda     8:0    1  1.8T  0 disk 
++ lsscsi -s
+/ccs/home/${USER}/.lsbatch/1622219500.1038386.shell: line 16: lsscsi: command not found
++ module list
+++ /sw/summit/lmod/8.2.10/libexec/lmod bash list
+
+Currently Loaded Modules:
+  1) xl/16.1.1-5                      4) xalt/1.2.1              7) DefApps
+  2) spectrum-mpi/10.3.1.2-20200121   5) lsf-tools/2.0
+  3) hsi/5.0.2.p5                     6) darshan-runtime/3.1.7
+
+ 
+
++ eval 'MODULEPATH=/autofs/nccs-svm1_sw/summit/modulefiles/site/linux-rhel7-ppc64le/spectrum-mpi/10.3.1.2-20200121-p6nrnt6/xl/16.1.1-5:/sw/summit/modulefiles/site/linux-rhel7-ppc64le/xl/16.1.1-5:/sw/summit/modulefiles/site/linux-rhel7-ppc64le/Core:/sw/summit/modulefiles/core;' export 'MODULEPATH;' '_ModuleTable001_=X01vZHVsZVRhYmxlXz17WyJNVHZlcnNpb24iXT0zLFsiY19yZWJ1aWxkVGltZSJdPWZhbHNlLFsiY19zaG9ydFRpbWUiXT1mYWxzZSxkZXB0aFQ9e30sZmFtaWx5PXtbImNvbXBpbGVyIl09InhsIixbIm1waSJdPSJzcGVjdHJ1bS1tcGkiLH0sbVQ9e0RlZkFwcHM9e1siZm4iXT0iL3N3L3N1bW1pdC9tb2R1bGVmaWxlcy9zaXRlL2xpbnV4LXJoZWw3LXBwYzY0bGUvQ29yZS9EZWZBcHBzLmx1YSIsWyJmdWxsTmFtZSJdPSJEZWZBcHBzIixbImxvYWRPcmRlciJdPTcscHJvcFQ9e30sWyJzdGFja0RlcHRoIl09MCxbInN0YXR1cyJdPSJhY3RpdmUiLFsidXNlck5hbWUiXT0iRGVmQXBwcyIsfSxbImRhcnNoYW4tcnVudGltZSJdPXtbImZuIl09Ii9zdy9zdW1taXQvbW9kdWxlZmls;' export '_ModuleTable001_;' '_ModuleTable002_=ZXMvc2l0ZS9saW51eC1yaGVsNy1wcGM2NGxlL0NvcmUvZGFyc2hhbi1ydW50aW1lLzMuMS43Lmx1YSIsWyJmdWxsTmFtZSJdPSJkYXJzaGFuLXJ1bnRpbWUvMy4xLjciLFsibG9hZE9yZGVyIl09Nixwcm9wVD17fSxbInN0YWNrRGVwdGgiXT0xLFsic3RhdHVzIl09ImFjdGl2ZSIsWyJ1c2VyTmFtZSJdPSJkYXJzaGFuLXJ1bnRpbWUiLH0saHNpPXtbImZuIl09Ii9zdy9zdW1taXQvbW9kdWxlZmlsZXMvc2l0ZS9saW51eC1yaGVsNy1wcGM2NGxlL0NvcmUvaHNpLzUuMC4yLnA1Lmx1YSIsWyJmdWxsTmFtZSJdPSJoc2kvNS4wLjIucDUiLFsibG9hZE9yZGVyIl09Myxwcm9wVD17fSxbInN0YWNrRGVwdGgiXT0xLFsic3RhdHVzIl09ImFjdGl2ZSIsWyJ1c2VyTmFtZSJdPSJoc2ki;' export '_ModuleTable002_;' '_ModuleTable003_=LH0sWyJsc2YtdG9vbHMiXT17WyJmbiJdPSIvc3cvc3VtbWl0L21vZHVsZWZpbGVzL3NpdGUvbGludXgtcmhlbDctcHBjNjRsZS9Db3JlL2xzZi10b29scy8yLjAubHVhIixbImZ1bGxOYW1lIl09ImxzZi10b29scy8yLjAiLFsibG9hZE9yZGVyIl09NSxwcm9wVD17fSxbInN0YWNrRGVwdGgiXT0xLFsic3RhdHVzIl09ImFjdGl2ZSIsWyJ1c2VyTmFtZSJdPSJsc2YtdG9vbHMiLH0sWyJzcGVjdHJ1bS1tcGkiXT17WyJmbiJdPSIvc3cvc3VtbWl0L21vZHVsZWZpbGVzL3NpdGUvbGludXgtcmhlbDctcHBjNjRsZS94bC8xNi4xLjEtNS9zcGVjdHJ1bS1tcGkvMTAuMy4xLjItMjAyMDAxMjEubHVhIixbImZ1bGxOYW1lIl09InNwZWN0cnVtLW1waS8xMC4zLjEuMi0yMDIwMDEyMSIs;' export '_ModuleTable003_;' '_ModuleTable004_=WyJsb2FkT3JkZXIiXT0yLHByb3BUPXt9LFsic3RhY2tEZXB0aCJdPTEsWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09InNwZWN0cnVtLW1waSIsfSx4YWx0PXtbImZuIl09Ii9zdy9zdW1taXQvbW9kdWxlZmlsZXMvc2l0ZS9saW51eC1yaGVsNy1wcGM2NGxlL0NvcmUveGFsdC8xLjIuMS5sdWEiLFsiZnVsbE5hbWUiXT0ieGFsdC8xLjIuMSIsWyJsb2FkT3JkZXIiXT00LHByb3BUPXt9LFsic3RhY2tEZXB0aCJdPTEsWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09InhhbHQiLH0seGw9e1siZm4iXT0iL3N3L3N1bW1pdC9tb2R1bGVmaWxlcy9zaXRlL2xpbnV4LXJoZWw3LXBwYzY0bGUvQ29yZS94bC8xNi4xLjEtNS5sdWEiLFsiZnVsbE5hbWUiXT0ieGwv;' export '_ModuleTable004_;' '_ModuleTable005_=MTYuMS4xLTUiLFsibG9hZE9yZGVyIl09MSxwcm9wVD17fSxbInN0YWNrRGVwdGgiXT0xLFsic3RhdHVzIl09ImFjdGl2ZSIsWyJ1c2VyTmFtZSJdPSJ4bCIsfSx9LG1wYXRoQT17Ii9hdXRvZnMvbmNjcy1zdm0xX3N3L3N1bW1pdC9tb2R1bGVmaWxlcy9zaXRlL2xpbnV4LXJoZWw3LXBwYzY0bGUvc3BlY3RydW0tbXBpLzEwLjMuMS4yLTIwMjAwMTIxLXA2bnJudDYveGwvMTYuMS4xLTUiLCIvc3cvc3VtbWl0L21vZHVsZWZpbGVzL3NpdGUvbGludXgtcmhlbDctcHBjNjRsZS94bC8xNi4xLjEtNSIsIi9zdy9zdW1taXQvbW9kdWxlZmlsZXMvc2l0ZS9saW51eC1yaGVsNy1wcGM2NGxlL0NvcmUiLCIvc3cvc3VtbWl0L21vZHVsZWZpbGVzL2NvcmUiLH0sWyJzeXN0ZW1CYXNlTVBB;' export '_ModuleTable005_;' '_ModuleTable006_=VEgiXT0iL3N3L3N1bW1pdC9tb2R1bGVmaWxlcy9zaXRlL2xpbnV4LXJoZWw3LXBwYzY0bGUvQ29yZTovc3cvc3VtbWl0L21vZHVsZWZpbGVzL2NvcmUiLH0=;' export '_ModuleTable006_;' '_ModuleTable_Sz_=6;' export '_ModuleTable_Sz_;'
+++ MODULEPATH=/autofs/nccs-svm1_sw/summit/modulefiles/site/linux-rhel7-ppc64le/spectrum-mpi/10.3.1.2-20200121-p6nrnt6/xl/16.1.1-5:/sw/summit/modulefiles/site/linux-rhel7-ppc64le/xl/16.1.1-5:/sw/summit/modulefiles/site/linux-rhel7-ppc64le/Core:/sw/summit/modulefiles/core
+++ export MODULEPATH
+++ _ModuleTable001_=X01vZHVsZVRhYmxlXz17WyJNVHZlcnNpb24iXT0zLFsiY19yZWJ1aWxkVGltZSJdPWZhbHNlLFsiY19zaG9ydFRpbWUiXT1mYWxzZSxkZXB0aFQ9e30sZmFtaWx5PXtbImNvbXBpbGVyIl09InhsIixbIm1waSJdPSJzcGVjdHJ1bS1tcGkiLH0sbVQ9e0RlZkFwcHM9e1siZm4iXT0iL3N3L3N1bW1pdC9tb2R1bGVmaWxlcy9zaXRlL2xpbnV4LXJoZWw3LXBwYzY0bGUvQ29yZS9EZWZBcHBzLmx1YSIsWyJmdWxsTmFtZSJdPSJEZWZBcHBzIixbImxvYWRPcmRlciJdPTcscHJvcFQ9e30sWyJzdGFja0RlcHRoIl09MCxbInN0YXR1cyJdPSJhY3RpdmUiLFsidXNlck5hbWUiXT0iRGVmQXBwcyIsfSxbImRhcnNoYW4tcnVudGltZSJdPXtbImZuIl09Ii9zdy9zdW1taXQvbW9kdWxlZmls
+++ export _ModuleTable001_
+++ _ModuleTable002_=ZXMvc2l0ZS9saW51eC1yaGVsNy1wcGM2NGxlL0NvcmUvZGFyc2hhbi1ydW50aW1lLzMuMS43Lmx1YSIsWyJmdWxsTmFtZSJdPSJkYXJzaGFuLXJ1bnRpbWUvMy4xLjciLFsibG9hZE9yZGVyIl09Nixwcm9wVD17fSxbInN0YWNrRGVwdGgiXT0xLFsic3RhdHVzIl09ImFjdGl2ZSIsWyJ1c2VyTmFtZSJdPSJkYXJzaGFuLXJ1bnRpbWUiLH0saHNpPXtbImZuIl09Ii9zdy9zdW1taXQvbW9kdWxlZmlsZXMvc2l0ZS9saW51eC1yaGVsNy1wcGM2NGxlL0NvcmUvaHNpLzUuMC4yLnA1Lmx1YSIsWyJmdWxsTmFtZSJdPSJoc2kvNS4wLjIucDUiLFsibG9hZE9yZGVyIl09Myxwcm9wVD17fSxbInN0YWNrRGVwdGgiXT0xLFsic3RhdHVzIl09ImFjdGl2ZSIsWyJ1c2VyTmFtZSJdPSJoc2ki
+++ export _ModuleTable002_
+++ _ModuleTable003_=LH0sWyJsc2YtdG9vbHMiXT17WyJmbiJdPSIvc3cvc3VtbWl0L21vZHVsZWZpbGVzL3NpdGUvbGludXgtcmhlbDctcHBjNjRsZS9Db3JlL2xzZi10b29scy8yLjAubHVhIixbImZ1bGxOYW1lIl09ImxzZi10b29scy8yLjAiLFsibG9hZE9yZGVyIl09NSxwcm9wVD17fSxbInN0YWNrRGVwdGgiXT0xLFsic3RhdHVzIl09ImFjdGl2ZSIsWyJ1c2VyTmFtZSJdPSJsc2YtdG9vbHMiLH0sWyJzcGVjdHJ1bS1tcGkiXT17WyJmbiJdPSIvc3cvc3VtbWl0L21vZHVsZWZpbGVzL3NpdGUvbGludXgtcmhlbDctcHBjNjRsZS94bC8xNi4xLjEtNS9zcGVjdHJ1bS1tcGkvMTAuMy4xLjItMjAyMDAxMjEubHVhIixbImZ1bGxOYW1lIl09InNwZWN0cnVtLW1waS8xMC4zLjEuMi0yMDIwMDEyMSIs
+++ export _ModuleTable003_
+++ _ModuleTable004_=WyJsb2FkT3JkZXIiXT0yLHByb3BUPXt9LFsic3RhY2tEZXB0aCJdPTEsWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09InNwZWN0cnVtLW1waSIsfSx4YWx0PXtbImZuIl09Ii9zdy9zdW1taXQvbW9kdWxlZmlsZXMvc2l0ZS9saW51eC1yaGVsNy1wcGM2NGxlL0NvcmUveGFsdC8xLjIuMS5sdWEiLFsiZnVsbE5hbWUiXT0ieGFsdC8xLjIuMSIsWyJsb2FkT3JkZXIiXT00LHByb3BUPXt9LFsic3RhY2tEZXB0aCJdPTEsWyJzdGF0dXMiXT0iYWN0aXZlIixbInVzZXJOYW1lIl09InhhbHQiLH0seGw9e1siZm4iXT0iL3N3L3N1bW1pdC9tb2R1bGVmaWxlcy9zaXRlL2xpbnV4LXJoZWw3LXBwYzY0bGUvQ29yZS94bC8xNi4xLjEtNS5sdWEiLFsiZnVsbE5hbWUiXT0ieGwv
+++ export _ModuleTable004_
+++ _ModuleTable005_=MTYuMS4xLTUiLFsibG9hZE9yZGVyIl09MSxwcm9wVD17fSxbInN0YWNrRGVwdGgiXT0xLFsic3RhdHVzIl09ImFjdGl2ZSIsWyJ1c2VyTmFtZSJdPSJ4bCIsfSx9LG1wYXRoQT17Ii9hdXRvZnMvbmNjcy1zdm0xX3N3L3N1bW1pdC9tb2R1bGVmaWxlcy9zaXRlL2xpbnV4LXJoZWw3LXBwYzY0bGUvc3BlY3RydW0tbXBpLzEwLjMuMS4yLTIwMjAwMTIxLXA2bnJudDYveGwvMTYuMS4xLTUiLCIvc3cvc3VtbWl0L21vZHVsZWZpbGVzL3NpdGUvbGludXgtcmhlbDctcHBjNjRsZS94bC8xNi4xLjEtNSIsIi9zdy9zdW1taXQvbW9kdWxlZmlsZXMvc2l0ZS9saW51eC1yaGVsNy1wcGM2NGxlL0NvcmUiLCIvc3cvc3VtbWl0L21vZHVsZWZpbGVzL2NvcmUiLH0sWyJzeXN0ZW1CYXNlTVBB
+++ export _ModuleTable005_
+++ _ModuleTable006_=VEgiXT0iL3N3L3N1bW1pdC9tb2R1bGVmaWxlcy9zaXRlL2xpbnV4LXJoZWw3LXBwYzY0bGUvQ29yZTovc3cvc3VtbWl0L21vZHVsZWZpbGVzL2NvcmUiLH0=
+++ export _ModuleTable006_
+++ _ModuleTable_Sz_=6
+++ export _ModuleTable_Sz_
+++ : -s sh
++ eval
++ nvidia-smi
+Fri May 28 12:31:59 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 418.116.00   Driver Version: 418.116.00   CUDA Version: 10.1     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|===============================+======================+======================|
+|   0  Tesla V100-SXM2...  On   | 00000004:04:00.0 Off |                    0 |
+| N/A   37C    P0    37W / 300W |      0MiB / 16130MiB |      0%   E. Process |
++-------------------------------+----------------------+----------------------+
+|   1  Tesla V100-SXM2...  On   | 00000004:05:00.0 Off |                    0 |
+| N/A   43C    P0    37W / 300W |      0MiB / 16130MiB |      0%   E. Process |
++-------------------------------+----------------------+----------------------+
+|   2  Tesla V100-SXM2...  On   | 00000035:03:00.0 Off |                    0 |
+| N/A   35C    P0    36W / 300W |      0MiB / 16130MiB |      0%   E. Process |
++-------------------------------+----------------------+----------------------+
+|   3  Tesla V100-SXM2...  On   | 00000035:04:00.0 Off |                    0 |
+| N/A   43C    P0    37W / 300W |      0MiB / 16130MiB |      0%   E. Process |
++-------------------------------+----------------------+----------------------+
+                                                                               
++-----------------------------------------------------------------------------+
+| Processes:                                                       GPU Memory |
+|  GPU       PID   Type   Process name                             Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
++ lshw -short -quiet -sanitize
++ cat
+/ccs/home/${USER}/.lsbatch/1622219500.1038386.shell: line 19: lshw: command not found
++ lspci
+0000:00:00.0 PCI bridge: IBM POWER9 Host Bridge (PHB4)
+0001:00:00.0 PCI bridge: IBM POWER9 Host Bridge (PHB4)
+0001:01:00.0 USB controller: Texas Instruments TUSB73x0 SuperSpeed USB 3.0 xHCI Host Controller (rev 02)
+0002:00:00.0 PCI bridge: IBM POWER9 Host Bridge (PHB4)
+0002:01:00.0 PCI bridge: ASPEED Technology, Inc. AST1150 PCI-to-PCI Bridge (rev 04)
+0002:02:00.0 VGA compatible controller: ASPEED Technology, Inc. ASPEED Graphics Family (rev 41)
+0003:00:00.0 PCI bridge: IBM POWER9 Host Bridge (PHB4)
+0003:01:00.0 Infiniband controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+0003:01:00.1 Infiniband controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+0004:00:00.0 PCI bridge: IBM POWER9 Host Bridge (PHB4)
+0004:01:00.0 PCI bridge: PLX Technology, Inc. Device 8725 (rev ca)
+0004:01:00.1 System peripheral: PLX Technology, Inc. Device 87d0 (rev ca)
+0004:01:00.2 System peripheral: PLX Technology, Inc. Device 87d0 (rev ca)
+0004:01:00.3 System peripheral: PLX Technology, Inc. Device 87d0 (rev ca)
+0004:01:00.4 System peripheral: PLX Technology, Inc. Device 87d0 (rev ca)
+0004:02:02.0 PCI bridge: PLX Technology, Inc. Device 8725 (rev ca)
+0004:02:0a.0 PCI bridge: PLX Technology, Inc. Device 8725 (rev ca)
+0004:02:0b.0 PCI bridge: PLX Technology, Inc. Device 8725 (rev ca)
+0004:02:0c.0 PCI bridge: PLX Technology, Inc. Device 8725 (rev ca)
+0004:03:00.0 SATA controller: Marvell Technology Group Ltd. 88SE9235 PCIe 2.0 x2 4-port SATA 6 Gb/s Controller (rev 11)
+0004:04:00.0 3D controller: NVIDIA Corporation GV100GL [Tesla V100 SXM2 16GB] (rev a1)
+0004:05:00.0 3D controller: NVIDIA Corporation GV100GL [Tesla V100 SXM2 16GB] (rev a1)
+0005:00:00.0 PCI bridge: IBM POWER9 Host Bridge (PHB4)
+0005:01:00.0 Ethernet controller: Broadcom Inc. and subsidiaries NetXtreme BCM5719 Gigabit Ethernet PCIe (rev 01)
+0005:01:00.1 Ethernet controller: Broadcom Inc. and subsidiaries NetXtreme BCM5719 Gigabit Ethernet PCIe (rev 01)
+0006:00:00.0 Bridge: IBM Device 04ea (rev 01)
+0006:00:00.1 Bridge: IBM Device 04ea (rev 01)
+0006:00:00.2 Bridge: IBM Device 04ea (rev 01)
+0006:00:01.0 Bridge: IBM Device 04ea (rev 01)
+0006:00:01.1 Bridge: IBM Device 04ea (rev 01)
+0006:00:01.2 Bridge: IBM Device 04ea (rev 01)
+0007:00:00.0 Bridge: IBM Device 04ea (rev 01)
+0007:00:00.1 Bridge: IBM Device 04ea (rev 01)
+0007:00:00.2 Bridge: IBM Device 04ea (rev 01)
+0007:00:01.0 Bridge: IBM Device 04ea (rev 01)
+0007:00:01.1 Bridge: IBM Device 04ea (rev 01)
+0007:00:01.2 Bridge: IBM Device 04ea (rev 01)
+0030:00:00.0 PCI bridge: IBM POWER9 Host Bridge (PHB4)
+0030:01:00.0 Ethernet controller: Broadcom Inc. and subsidiaries NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+0030:01:00.1 Ethernet controller: Broadcom Inc. and subsidiaries NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+0030:01:00.2 Ethernet controller: Broadcom Inc. and subsidiaries NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+0030:01:00.3 Ethernet controller: Broadcom Inc. and subsidiaries NetXtreme II BCM57800 1/10 Gigabit Ethernet (rev 10)
+0033:00:00.0 PCI bridge: IBM POWER9 Host Bridge (PHB4)
+0033:01:00.0 Infiniband controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+0033:01:00.1 Infiniband controller: Mellanox Technologies MT28800 Family [ConnectX-5 Ex]
+0034:00:00.0 PCI bridge: IBM POWER9 Host Bridge (PHB4)
+0035:00:00.0 PCI bridge: IBM POWER9 Host Bridge (PHB4)
+0035:01:00.0 PCI bridge: PLX Technology, Inc. Device 8725 (rev ca)
+0035:02:04.0 PCI bridge: PLX Technology, Inc. Device 8725 (rev ca)
+0035:02:05.0 PCI bridge: PLX Technology, Inc. Device 8725 (rev ca)
+0035:02:0d.0 PCI bridge: PLX Technology, Inc. Device 8725 (rev ca)
+0035:03:00.0 3D controller: NVIDIA Corporation GV100GL [Tesla V100 SXM2 16GB] (rev a1)
+0035:04:00.0 3D controller: NVIDIA Corporation GV100GL [Tesla V100 SXM2 16GB] (rev a1)
+
+------------------------------------------------------------
+Sender: LSF System <lsfadmin@batch2>
+Subject: Job 1038386: <Not_Specified> in cluster <summit> Done
+
+Job <Not_Specified> was submitted from host <login2> by user <${USER}> in cluster <summit> at Fri May 28 12:31:40 2021
+Job was executed on host(s) <1*batch2>, in queue <batch>, as user <${USER}> in cluster <summit> at Fri May 28 12:31:46 2021
+                            <42*h20n06>
+</ccs/home/${USER}> was used as the home directory.
+</ccs/home/${USER}/Author-Kit> was used as the working directory.
+Started at Fri May 28 12:31:46 2021
+Terminated at Fri May 28 12:32:00 2021
+Results reported at Fri May 28 12:32:00 2021
+
+The output (if any) is above this job summary.
+
