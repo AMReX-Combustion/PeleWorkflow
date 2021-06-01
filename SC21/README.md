@@ -15,7 +15,7 @@ Results from the [the SC Tech Program Author Kit](https://github.com/SC-Tech-Pro
 - [Example input file for PMF case](inputs_ex) and [initial flow condition setup](PMF_CH4_1bar_300K_DRM_MixAvg.dat)
 - [Example input file for piston bowl case](inputs_ex_pb)
 
-Figure 3 requires the PeleC branch [here](https://github.com/AMReX-Combustion/PeleC/tree/jrood/cuda_acc)
+Figure 3 requires the PeleC branch [here](https://github.com/AMReX-Combustion/PeleC/tree/jrood/cuda_acc).
 
 ## Submission files for the [job-scholar](../job-scholar) job submission framework
 
@@ -25,6 +25,6 @@ The [submission script](submit-jobs.py), is used as `python submit-jobs.py FILEN
 - [Example strong scaling job set file for ORNL Summit](strong-scaling-summit.yaml) (Figure 9, 10, and 11 in paper)
 - [Example weak scaling job set file for ORNL Summit](weak-scaling-summit.yaml) (Figure 12 in paper)
 
-Job-scholar generates submission scripts for each listed job in a very particular fashion for each supported machine. Although we have not recreated every YAML file necessary to recreate the figures, we provide several examples which demonstrate the exercise.
+Job-scholar generates submission scripts for each listed job using best practices for each supported machine. Although we have not recreated every YAML file necessary to recreate the figures, we provide several examples which demonstrate the exercise.
 
 
