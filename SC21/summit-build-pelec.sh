@@ -9,7 +9,7 @@ cmd() {
 }
 
 cmd "module unload xl"
-cmd "module load gcc"
+cmd "module load gcc/6.4.0"
 cmd "module load cuda/10.2.89"
 cmd "module load cmake"
 

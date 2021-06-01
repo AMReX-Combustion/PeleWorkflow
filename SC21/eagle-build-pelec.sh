@@ -9,11 +9,10 @@ cmd() {
 }
 
 cmd "source /nopt/nrel/ecom/hpacf/env.sh"
-cmd "module load gcc"
+cmd "module load intel-parallel-studio/cluster.2018.4"
 cmd "module load binutils"
 cmd "module load git"
 cmd "module load python"
-cmd "module load cuda/10.2.89"
 
 cmd "git clone --recursive https://github.com/AMReX-Combustion/PeleC.git"
 cmd "cd ${MYPWD}/PeleC/Submodules/AMReX"
@@ -36,6 +35,6 @@ cmd "git apply patch.tmp && rm patch.tmp"
 cmd "cd ${MYPWD}/PeleC/Exec/RegTests/PMF"
 cmd "git checkout v0.2 && git submodule update"
 cmd "nice make -j8 TPLrealclean"
-cmd "nice make -j8 COMP=gnu USE_CUDA=FALSE USE_SUNDIALS_PP=TRUE TPL"
+cmd "nice make -j8 COMP=intel USE_CUDA=FALSE USE_SUNDIALS_PP=TRUE TPL"
 cmd "nice make -j8 realclean"
-cmd "nice make -j8 COMP=gnu USE_MPI=TRUE USE_CUDA=FALSE USE_SUNDIALS_PP=TRUE TINY_PROFILE=TRUE Chemistry_Model=drm19"
+cmd "nice make -j8 COMP=intel USE_MPI=TRUE USE_CUDA=FALSE USE_SUNDIALS_PP=TRUE TINY_PROFILE=TRUE Chemistry_Model=drm19"

@@ -264,7 +264,7 @@ cmd() {
           "cmd \"module use /nopt/nrel/ecom/hpacf/utilities/${MODULES}\"\n"
           "cmd \"module use /nopt/nrel/ecom/hpacf/software/${MODULES}/${COMPILER}\"\n"
         )
-        job.script += "cmd \"module load gcc\"\n"
+        job.script += "cmd \"module load gcc/7.4.0\"\n"
         job.script += "cmd \"module load python\"\n"
 
         if job.compiler == 'gnu':
@@ -283,7 +283,7 @@ cmd() {
                            + str(os.path.basename(job.input_file)) + " "
                            + job.post_args + "\"\n")
         elif job.compiler == 'intel':
-            job.script += "cmd \"module load intel-parallel-studio\"\n\n"
+            job.script += "cmd \"module load intel-parallel-studio/cluster.2018.4\"\n\n"
             job.script += "MY_TMP_DIR=/scratch/${USER}/.tmp\n"
             job.script += "NODE_LIST=${MY_TMP_DIR}/node_list.${SLURM_JOB_ID}\n"
             job.script += "cmd \"mkdir -p ${MY_TMP_DIR}\"\n"
@@ -339,7 +339,7 @@ cmd() {
         if job.compiler == 'pgi':
             job.script += "cmd \"module load pgi/19.5\"\n"
         elif job.compiler == 'gcc':
-            job.script += "cmd \"module load gcc\"\n"
+            job.script += "cmd \"module load gcc/6.4.0\"\n"
         if job.mapping == '14-ranks-per-cpu':
             job.script += "cmd \"export OMP_NUM_THREADS=6\"\n"
         job.script += ("cmd \"" + job.pre_args
