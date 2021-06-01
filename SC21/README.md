@@ -4,8 +4,9 @@
 
 Using [the SC Tech Program Author Kit](https://github.com/SC-Tech-Program/Author-Kit):
 
-- [NREL Eagle compute node description](eagle-system.txt)
-- [ORNL Summit compute node description](summit-system.txt)
+- [NREL Eagle compute node description](eagle-system.txt), more details at the [website](https://www.nrel.gov/hpc/eagle-system-configuration.html)
+- [ORNL Summit compute node description](summit-system.txt), more details at the [website](https://docs.olcf.ornl.gov/systems/summit_user_guide.html#summit-documentation-resources)
+- ANL Theta, more details at the [website](https://www.alcf.anl.gov/support-center/theta/theta-thetagpu-overview)
 
 ## Submission job set files for [job-scholar](../job-scholar)
 
